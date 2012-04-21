@@ -152,3 +152,10 @@
   ;; EmacsWikiに登録されているelisp の名前を取得する
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; プラグインの設定                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; redo+
+(when (require 'redo+ nil t)
+  (global-set-key (kbd "C-.") 'redo))
