@@ -167,3 +167,34 @@
 ;;; redo+
 (when (require 'redo+ nil t)
   (global-set-key (kbd "C-.") 'redo))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Anything                                               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Anything
+(when (require 'anything nil t)
+  (require 'anything-startup)
+
+  (setq
+   ;; 候補を表示するまでの時間。デフォルトは0.5
+   anything-idle-delay 0.3
+   ;; タイプして再描写するまでの時間。デフォルトは0.1
+   anything-input-idle-delay 0.2
+   ;; 候補の最大表示数。デフォルトは50
+   anything-candidate-number-limit 100
+   ;; 候補が多いときに体感速度を早くする
+   anything-quick-update t
+   ;; 候補選択ショートカットをアルファベットに
+   anything-enable-shortcuts 'alphabet)
+
+  (when (require 'anything-config nil t)
+    ;; root権限でアクションを実行するときのコマンド
+    ;; デフォルトは"su"
+    (setq anything-su-or-sudo "sudo"))
+
+  ;; ファイルリストの設定
+  (setq anything-c-filelist-file-name "/tmp/all.filelist")
+  (setq anything-grep-candidates-fast-directory-regexp "^/tmp")
+
+  ;; キーバインド
+  (global-set-key (kbd "C-:") 'anything-filelist+))
