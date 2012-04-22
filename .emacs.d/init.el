@@ -179,7 +179,7 @@
    ;; 候補を表示するまでの時間。デフォルトは0.5
    anything-idle-delay 0.3
    ;; タイプして再描写するまでの時間。デフォルトは0.1
-   anything-input-idle-delay 0.2
+   anything-input-idle-delay 0.1
    ;; 候補の最大表示数。デフォルトは50
    anything-candidate-number-limit 100
    ;; 候補が多いときに体感速度を早くする
@@ -191,6 +191,20 @@
     ;; root権限でアクションを実行するときのコマンド
     ;; デフォルトは"su"
     (setq anything-su-or-sudo "sudo"))
+
+  ;; anything-c-moccur
+  (when (require 'anything-c-moccur nil t)
+    (setq
+     ;; anything-c-moccur用 `anything-idle-delay'
+     anything-c-moccur-anything-idle-delay 0.1
+     ;; バッファの情報をハイライトする
+     anything-c-moccur-higligt-info-line-flag t
+     ;; 現在選択中の候補の位置をほかのwindowに表示する
+     anything-c-moccur-enable-auto-look-flag t
+     ;; 起動時にポイントの位置の単語を初期パターンにする
+     anything-c-moccur-enable-initial-pattern t)
+    ;; C-M-oにanything-c-moccur-occur-by-moccurを割り当てる
+    (global-set-key (kbd "C-M-o") 'anything-c-moccur-occur-by-moccur))
 
   ;; ファイルリストの設定
   (setq anything-c-filelist-file-name "/tmp/all.filelist")
