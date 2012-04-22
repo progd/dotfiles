@@ -213,3 +213,10 @@
   ;; キーバインド
   (global-set-key (kbd "C-:") 'anything-filelist+)
   (global-set-key (kbd "M-y") 'anything-show-kill-ring))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Auto Complete Mode                                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'auto-complete-config nil t)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
+  (ac-config-default))
