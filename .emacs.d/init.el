@@ -100,6 +100,7 @@
 (setq frame-title-format "%f")
 ;; 行番号を常に表示する
 (global-linum-mode t)
+(setq linum-format "%4d")
 ;;; ビープを消す
 (setq ring-bell-function 'ignore)
 
