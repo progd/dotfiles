@@ -197,4 +197,5 @@
   (setq anything-grep-candidates-fast-directory-regexp "^/tmp")
 
   ;; キーバインド
-  (global-set-key (kbd "C-:") 'anything-filelist+))
+  (global-set-key (kbd "C-:") 'anything-filelist+)
+  (global-set-key (kbd "M-y") 'anything-show-kill-ring))
