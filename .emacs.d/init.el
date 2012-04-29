@@ -24,6 +24,14 @@
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (add-to-load-path "elisp" "conf" "public_repos")
 
+;; exec-pathにshellのPATHを追加する
+;; cf. http://d.hatena.ne.jp/sugyan/20100704/1278212225
+(loop for x in (reverse
+                (split-string
+                 (substring
+                  (shell-command-to-string "echo $PATH") 0 -1) ":"))
+      do (add-to-list 'exec-path x))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; キーバインドの設定                                     ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
