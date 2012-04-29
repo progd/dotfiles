@@ -263,3 +263,31 @@
   (ruby-block-mode t))
 ;; ruby-mode-hookに追加
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; tags                                                   ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ctags.el の設定
+(require 'ctags nil t)
+(setq tags-revert-without-query t)
+(setq ctags-command "/usr/local/bin/ctags -R --fields=\"+afikKlmnsSzt\" ")
+(global-set-key (kbd "<f5>") 'ctags-create-or-update-tags-table)
+
+;; AnythingからTAGSを利用しやすくするコマンド作成
+(when (require 'anything-exuberant-ctags nil t)
+  ;; anything-for-tags用のソースを定義
+  (setq anything-for-tags
+        (list anything-c-source-imenu
+              anything-c-source-exuberant-ctags-select
+              ))
+
+  ;; anything-for-tagsコマンドを作成
+  (defun anything-for-tags ()
+    "Preconfigured `anything' for anything-for-tags."
+    (interactive)
+    (anything anything-for-tags
+              (thing-at-point 'symbol)
+              nil nil nil "*anything for tags*"))
+
+  ;; M-tにanything-for-currentを割り当て
+  (define-key global-map (kbd "M-t") 'anything-for-tags))
