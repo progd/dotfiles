@@ -45,8 +45,8 @@
 (global-set-key (kbd "C-m") 'newline-and-indent)
 ;; 折り返しトグルコマンド
 (global-set-key (kbd "C-c l") 'toggle-truncate-lines)
-;; "C-t" でウィンドウを切り替える。初期値はtranspose-chars
-(global-set-key (kbd "C-t") 'other-window)
+;; "C-<tab>" でウィンドウを切り替える。初期値はtranspose-chars
+(global-set-key (kbd "C-<tab>") 'other-window)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 環境変数の設定                                         ;;
