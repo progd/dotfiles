@@ -267,6 +267,7 @@
   (ruby-block-mode t))
 ;; ruby-mode-hookに追加
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
+(setq ruby-deep-indent-paren nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; tags                                                   ;;
