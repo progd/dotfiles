@@ -296,3 +296,12 @@
 
   ;; M-tにanything-for-currentを割り当て
   (define-key global-map (kbd "M-t") 'anything-for-tags))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; terminal                                               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; multi-term
+(when (require 'multi-term nil t)
+  ;; 使用するシェルを指定
+  (setq multi-term-program "/bin/zsh")
+  (setenv "TERMINFO" "~/.terminfo"))
