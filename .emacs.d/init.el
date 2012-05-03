@@ -132,7 +132,7 @@
   (set-background-color "Black")
   (set-foreground-color "LightGray")
   (set-cursor-color "Gray")
-  (set-frame-parameter nil 'alpha 80))
+  (set-frame-parameter nil 'alpha 85))
 
 ;;; フォントの設定
 (when (eq window-system 'ns)
