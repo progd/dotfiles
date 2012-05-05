@@ -48,6 +48,18 @@
 ;; "C-<tab>" でウィンドウを切り替える。初期値はtranspose-chars
 (global-set-key (kbd "C-<tab>") 'other-window)
 
+;;; C-w を少し賢くする
+;; region がアクティブじゃない時 は、CLI の C-w と同じく、カーソル左の一単語を削除
+;; region がアクティブの時は、通常の C-w
+;; transient-mark-mode が無効の時も、通常の C-w
+;; cf. http://qiita.com/items/e6978008253ba70c037c
+(defun backward-kill-word-or-kill-region ()
+  (interactive)
+  (if (or (not transient-mark-mode) (region-active-p))
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word 1)))
+(global-set-key "\C-w" 'backward-kill-word-or-kill-region)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 環境変数の設定                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
