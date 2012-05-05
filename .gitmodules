@@ -4,3 +4,6 @@
 [submodule ".emacs.d/public_repos/yaml-mode"]
 	path = .emacs.d/public_repos/yaml-mode
 	url = git://github.com/yoshiki/yaml-mode.git
+[submodule ".zsh.d/public_repos/oh-my-zsh"]
+	path = .zsh.d/public_repos/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
