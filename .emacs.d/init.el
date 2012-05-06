@@ -90,6 +90,7 @@
 ;;; zsh
 (add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("zshrc$" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("zshenv$" . shell-script-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; フレームに関する設定                                   ;;
