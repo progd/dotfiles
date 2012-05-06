@@ -5,7 +5,7 @@ ZSH=$HOME/.zsh.d/public_repos/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -34,3 +34,41 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+# ヒストリーの設定
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt share_history
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+
+# 環境によってプロンプトの色を変える + 環境固有の alias の設定
+env_color="$fg_bold[white]"
+case $OSTYPE in
+    *darwin*)
+        env_color="$fg_bold[red]"
+        # Applications
+        alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+        ;;
+esac
+
+PROMPT='$(git_prompt_info)%{$env_color%}%% %{$reset_color%}'
+RPROMPT='[%/]'
+ZSH_THEME_GIT_PROMPT_PREFIX="git:("
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=")%{$fg_bold[yellow]%}!%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=") "
+
+# C-p/C-nで履歴検索 + カーソルを行末に移動
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey '' history-beginning-search-backward-end
+bindkey '' history-beginning-search-forward-end
+
+# 共通の alias の設定
+alias d='ls -lhtr'
+alias l='ls -lha'
+alias a='ls -a'
+alias f=ls
