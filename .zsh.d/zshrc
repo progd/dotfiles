@@ -35,6 +35,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+## Emacsキーバインドを使う
+bindkey -e
+
 # ヒストリーの設定
 HISTFILE=~/.histfile
 HISTSIZE=100000
