@@ -448,3 +448,15 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
+
+key.setGlobalKey(["C-x", ";"], function (ev, arg) {
+    ext.exec("list-hateb-items", arg);
+}, "はてなブックマークのアイテムを一覧表示", true);
+
+key.setViewKey("c", function (ev, arg) {
+    ext.exec("list-hateb-comments", arg);
+}, "はてなブックマークのコメントを一覧表示", true);
+
+key.setViewKey('a', function (ev, arg) {
+    ext.exec("hateb-bookmark-this-page");
+}, 'このページをはてなブックマークに追加', true);
