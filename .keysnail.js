@@ -49,6 +49,7 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
 });
 
 
+
 // ============================= Key bindings ============================== //
 
 key.setGlobalKey('C-M-r', function (ev) {
@@ -465,3 +466,7 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
+
+key.setGlobalKey('C-M-p', function (ev, arg) {
+    KeySnail.modules.userscript.openPluginManager();
+}, 'open_plugin_manager', true);
