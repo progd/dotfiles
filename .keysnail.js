@@ -6,6 +6,18 @@
 //{{%PRESERVE%
 // HoK
 plugins.options["hok.hint_keys"] = "asdfghjklqwertyuiopzxcvbnm";
+
+// LDRnail
+plugins.options["ldrnail.keybind"] = {
+    'j': 'next',
+    'k': 'prev',
+    'p': 'pin',
+    'P': 'list',
+    'f': 'focus',
+    'v': 'view',
+    'o': 'open',
+    's': 'siteinfo',
+};
 //}}%PRESERVE%
 // ========================================================================= //
 
