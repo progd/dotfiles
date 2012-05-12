@@ -4,7 +4,22 @@
 // 特殊キー, キーバインド定義, フック, ブラックリスト以外のコードは, この中に書くようにして下さい
 // ========================================================================= //
 //{{%PRESERVE%
-// ここにコードを入力して下さい
+// HoK
+key.setViewKey('e', function (aEvent, aArg) {
+    ext.exec("hok-start-foreground-mode", aArg);
+}, 'Hit a Hint を開始', true);
+
+key.setViewKey('E', function (aEvent, aArg) {
+    ext.exec("hok-start-background-mode", aArg);
+}, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
+
+key.setViewKey(';', function (aEvent, aArg) {
+    ext.exec("hok-start-extended-mode", aArg);
+}, 'HoK - 拡張ヒントモード', true);
+
+key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
+    ext.exec("hok-start-continuous-mode", aArg);
+}, 'リンクを連続して開く Hit a Hint を開始', true);
 //}}%PRESERVE%
 // ========================================================================= //
 
