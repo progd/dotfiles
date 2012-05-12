@@ -48,6 +48,7 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
     }
 });
 
+
 // ============================= Key bindings ============================== //
 
 key.setGlobalKey('C-M-r', function (ev) {
@@ -117,6 +118,10 @@ key.setGlobalKey(['C-x', 'C-f'], function (ev) {
 key.setGlobalKey(['C-x', 'C-s'], function (ev) {
     saveDocument(window.content.document);
 }, 'ファイルを保存', true);
+
+key.setGlobalKey(['C-x', ';'], function (ev, arg) {
+    ext.exec("list-hateb-items", arg);
+}, 'はてなブックマークのアイテムを一覧表示', true);
 
 key.setGlobalKey('C-s', function (ev) {
     command.iSearchForwardKs(ev);
@@ -233,6 +238,18 @@ key.setViewKey('M-p', function (ev) {
 key.setViewKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
+
+key.setViewKey('c', function (ev, arg) {
+    ext.exec("list-hateb-comments", arg);
+}, 'はてなブックマークのコメントを一覧表示', true);
+
+key.setViewKey('a', function (ev, arg) {
+    ext.exec("hateb-bookmark-this-page");
+}, 'このページをはてなブックマークに追加', true);
+
+key.setViewKey('d', function (ev) {
+    BrowserCloseTabOrWindow();
+}, 'タブ / ウィンドウを閉じる');
 
 key.setEditKey(['C-x', 'h'], function (ev) {
     command.selectAll(ev);
@@ -448,19 +465,3 @@ key.setCaretKey('M-p', function (ev) {
 key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
-
-key.setGlobalKey(["C-x", ";"], function (ev, arg) {
-    ext.exec("list-hateb-items", arg);
-}, "はてなブックマークのアイテムを一覧表示", true);
-
-key.setViewKey("c", function (ev, arg) {
-    ext.exec("list-hateb-comments", arg);
-}, "はてなブックマークのコメントを一覧表示", true);
-
-key.setViewKey('a', function (ev, arg) {
-    ext.exec("hateb-bookmark-this-page");
-}, 'このページをはてなブックマークに追加', true);
-
-key.setViewlKey(['d'], function (ev) {
-    BrowserCloseTabOrWindow();
-}, 'タブ / ウィンドウを閉じる');
