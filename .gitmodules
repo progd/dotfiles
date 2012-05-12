@@ -7,3 +7,6 @@
 [submodule ".zsh.d/public_repos/oh-my-zsh"]
 	path = .zsh.d/public_repos/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".emacs.d/public_repos/haml-mode"]
+	path = .emacs.d/public_repos/haml-mode
+	url = https://github.com/nex3/haml-mode.git

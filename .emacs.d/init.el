@@ -302,6 +302,8 @@
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
 (setq ruby-deep-indent-paren nil)
 
+(require 'haml-mode nil t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; tags                                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
