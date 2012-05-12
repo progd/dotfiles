@@ -9,21 +9,21 @@ plugins.options["hok.hint_keys"] = "asdfghjklqwertyuiopzxcvbnm";
 
 // LDRnail
 plugins.options["ldrnail.keybind"] = {
-    'j': 'next',
-    'k': 'prev',
-    'p': 'pin',
-    'P': 'list',
-    'f': 'focus',
-    'v': 'view',
-    'o': 'open',
-    's': 'siteinfo',
+    'J': 'next',
+    'K': 'prev',
+    'P': 'pin',
+    'L': 'list',
+    'F': 'focus',
+    'V': 'view',
+    'O': 'open',
+    'S': 'siteinfo',
 };
 //}}%PRESERVE%
 // ========================================================================= //
 
 // ========================= Special key settings ========================== //
 
-key.quitKey              = "C-g";
+key.quitKey              = "ESC";
 key.helpKey              = "<f1>";
 key.escapeKey            = "C-q";
 key.macroStartKey        = "undefined";
