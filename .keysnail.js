@@ -20,6 +20,7 @@ key.setViewKey(';', function (aEvent, aArg) {
 key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
     ext.exec("hok-start-continuous-mode", aArg);
 }, 'リンクを連続して開く Hit a Hint を開始', true);
+plugins.options["hok.hint_keys"] = "asdfghjklqwertyuiopzxcvbnm";
 //}}%PRESERVE%
 // ========================================================================= //
 
