@@ -460,3 +460,7 @@ key.setViewKey("c", function (ev, arg) {
 key.setViewKey('a', function (ev, arg) {
     ext.exec("hateb-bookmark-this-page");
 }, 'このページをはてなブックマークに追加', true);
+
+key.setViewlKey(['d'], function (ev) {
+    BrowserCloseTabOrWindow();
+}, 'タブ / ウィンドウを閉じる');
