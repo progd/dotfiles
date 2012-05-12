@@ -5,21 +5,6 @@
 // ========================================================================= //
 //{{%PRESERVE%
 // HoK
-key.setViewKey('e', function (aEvent, aArg) {
-    ext.exec("hok-start-foreground-mode", aArg);
-}, 'Hit a Hint を開始', true);
-
-key.setViewKey('E', function (aEvent, aArg) {
-    ext.exec("hok-start-background-mode", aArg);
-}, 'リンクをバックグラウンドで開く Hit a Hint を開始', true);
-
-key.setViewKey(';', function (aEvent, aArg) {
-    ext.exec("hok-start-extended-mode", aArg);
-}, 'HoK - 拡張ヒントモード', true);
-
-key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
-    ext.exec("hok-start-continuous-mode", aArg);
-}, 'リンクを連続して開く Hit a Hint を開始', true);
 plugins.options["hok.hint_keys"] = "asdfghjklqwertyuiopzxcvbnm";
 //}}%PRESERVE%
 // ========================================================================= //
