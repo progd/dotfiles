@@ -303,6 +303,7 @@
 (setq ruby-deep-indent-paren nil)
 
 (require 'haml-mode nil t)
+(require 'sass-mode nil t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; tags                                                   ;;
