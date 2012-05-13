@@ -282,8 +282,6 @@
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 
-;; 括弧の自動挿入 - ruby-electric
-(require 'ruby-electric nil t)
 ;; endに対応する行のハイライト - ruby-block
 (when (require 'ruby-block nil t)
   (setq ruby-block-highlight-toggle t))
