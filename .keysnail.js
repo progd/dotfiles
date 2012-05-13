@@ -164,6 +164,10 @@ key.setGlobalKey('C-M-h', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
+key.setGlobalKey('C-M-p', function (ev, arg) {
+    KeySnail.modules.userscript.openPluginManager();
+}, 'open_plugin_manager', true);
+
 key.setViewKey('e', function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hit a Hint を開始', true);
@@ -240,7 +244,7 @@ key.setViewKey(['C-x', 'h'], function (ev) {
     goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
-key.setViewKey('f', function (ev) {
+key.setViewKey('C-i', function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
 
@@ -350,7 +354,7 @@ key.setEditKey('C-h', function (ev) {
     goDoCommand("cmd_deleteCharBackward");
 }, '前の一文字を削除');
 
-key.setEditKey([['C-<backspace>'], ['M-<delete>']], function (ev) {
+key.setEditKey('C-<backspace>', function (ev) {
     command.deleteBackwardWord(ev);
 }, '前の一単語を削除');
 
@@ -467,7 +471,7 @@ key.setCaretKey(['C-x', 'h'], function (ev) {
     goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
-key.setCaretKey('f', function (ev) {
+key.setCaretKey('C-i', function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
 
@@ -479,6 +483,6 @@ key.setCaretKey('M-n', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, false, true);
 }, '前のボタンへフォーカスを当てる');
 
-key.setGlobalKey('C-M-p', function (ev, arg) {
-    KeySnail.modules.userscript.openPluginManager();
-}, 'open_plugin_manager', true);
+key.setGlobalKey('C-M-k', function (ev, arg) {
+    KeySnail.openPreference();
+}, 'open_preference', true);
