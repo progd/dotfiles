@@ -184,13 +184,21 @@ key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
     ext.exec("hok-start-continuous-mode", aArg);
 }, 'リンクを連続して開く Hit a Hint を開始', true);
 
-key.setViewKey([['C-n'], ['j']], function (ev) {
+key.setViewKey('C-n', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
 }, '一行スクロールダウン');
 
-key.setViewKey([['C-p'], ['k']], function (ev) {
+key.setViewKey('j', function (ev, arg) {
+    ext.exec("scrollet-scroll-document-down", arg);
+}, '半画面スクロールダウン');
+
+key.setViewKey('C-p', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
 }, '一行スクロールアップ');
+
+key.setViewKey('k', function (ev, arg) {
+    ext.exec("scrollet-scroll-document-up", arg);
+}, '半画面スクロールアップ');
 
 key.setViewKey([['C-f'], ['.']], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
