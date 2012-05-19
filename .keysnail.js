@@ -494,3 +494,15 @@ key.setCaretKey('M-n', function (ev) {
 key.setGlobalKey('C-M-k', function (ev, arg) {
     KeySnail.openPreference();
 }, 'open_preference', true);
+
+key.setViewKey(['z', 'z'], function (ev) {
+    FullZoom.reset();
+}, 'テキストサイズをリセット');
+
+key.setViewKey(['z', 'o'], function (ev) {
+    FullZoom.reduce();
+}, 'テキストサイズを小さく');
+
+key.setViewKey(['z', 'i'], function (ev) {
+    FullZoom.enlarge();
+}, 'テキストサイズを大きく');
