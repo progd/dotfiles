@@ -4,7 +4,7 @@
 // 特殊キー, キーバインド定義, フック, ブラックリスト以外のコードは, この中に書くようにして下さい
 // ========================================================================= //
 //{{%PRESERVE%
-// HoK
+/// HoK
 plugins.options["hok.hint_keys"] = "asdfghjklqwertyuiopzxcvbnm";
 
 // LDRnail
@@ -18,6 +18,118 @@ plugins.options["ldrnail.keybind"] = {
     'O': 'open',
     'S': 'siteinfo',
 };
+
+/// local_keymap
+var local = {};
+plugins.options["site_local_keymap.local_keymap"] = local;
+
+function fake(k, i) function () { key.feed(k, i); };
+function pass(k, i) [k, fake(k, i)];
+function ignore(k, i) [k, null];
+
+local["^https?://mail.google.com/mail/"] = [
+    pass(['g', 'i'], 3),
+    pass(['g', 's'], 3),
+    pass(['g', 't'], 3),
+    pass(['g', 'd'], 3),
+    pass(['g', 'a'], 3),
+    pass(['g', 'c'], 3),
+    pass(['g', 'k'], 3),
+    // thread list
+    pass(['*', 'a'], 3),
+    pass(['*', 'n'], 3),
+    pass(['*', 'r'], 3),
+    pass(['*', 'u'], 3),
+    pass(['*', 's'], 3),
+    pass(['*', 't'], 3),
+    // navigation
+    ['u', null],
+    ['k', null],
+    ['j', null],
+    ['o', null],
+    ['p', null],
+    ['n', null],
+    // application
+    ['c', null],
+    ['/', null],
+    ['q', null],
+    ['?', null],
+    // manipulation
+    ['x', null],
+    ['s', null],
+    ['y', null],
+    ['e', null],
+    ['m', null],
+    ['!', null],
+    ['#', null],
+    ['r', null],
+    ['R', null],
+    ['a', null],
+    ['A', null],
+    ['f', null],
+    ['F', null],
+    ['N', null],
+    pass(['<tab>', 'RET'], 3),
+    ['ESC', null],
+    [']', null],
+    ['[', null],
+    ['z', null],
+    ['.', null],
+    ['I', null],
+    ['U', null],
+    ['C-s', null],
+    ['T', null]
+];
+
+local["^http://www.google.(co.jp|com)/reader/view/"] = [
+    // jump
+    pass(["g", "h"]),
+    pass(["g", "a"]),
+    pass(["g", "s"]),
+    pass(["g", "S"]),
+    pass(["g", "u"]),
+    pass(["g", "t"]),
+    pass(["g", "T"]),
+    pass(["g", "d"]),
+    pass(["g", "f"]),
+    pass(["g", "F"]),
+    pass(["g", "c"]),
+    pass(["g", "C"]),
+    pass(["g", "e"]),
+    pass(["g", "p"]),
+    // navigation
+    ["j", null],
+    ["k", null],
+    ["n", null],
+    ["p", null],
+    ["N", null],
+    ["P", null],
+    ["X", null],
+    ["o", null],
+    // item
+    ["s", null],
+    ["L", null],
+    ["t", null],
+    ["e", null],
+    ["S", null],
+    ["d", null],
+    ["v", null],
+    ["o", null],
+    ["c", null],
+    ["C", null],
+    ["m", null],
+    ["A", null],
+    ["T", null],
+    // application
+    ["r", null],
+    ["u", null],
+    ["1", null],
+    ["2", null],
+    ["/", null],
+    ["a", null],
+    ["=", null],
+    ["-", null]
+];
 //}}%PRESERVE%
 // ========================================================================= //
 
