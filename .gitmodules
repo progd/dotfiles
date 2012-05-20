@@ -13,3 +13,6 @@
 [submodule ".emacs.d/public_repos/sass-mode"]
 	path = .emacs.d/public_repos/sass-mode
 	url = https://github.com/nex3/sass-mode.git
+[submodule ".zsh.d/public_repos/z"]
+	path = .zsh.d/public_repos/z
+	url = https://github.com/rupa/z.git

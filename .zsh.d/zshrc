@@ -89,3 +89,10 @@ gd() {
         cd $PWD/$(git rev-parse --show-cdup)
     fi
 }
+
+## z.sh (cd 履歴を補完するコマンド) cf. http://project-p.jp/halt/?p=1724
+_Z_CMD=j
+source ~/.zsh.d/public_repos/z/z.sh
+precmd() {
+  _z --add "$(pwd -P)"
+}
