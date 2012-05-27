@@ -96,3 +96,9 @@ source ~/.zsh.d/public_repos/z/z.sh
 precmd() {
   _z --add "$(pwd -P)"
 }
+
+## auto-fu
+source ~/.zsh.d/public_repos/auto-fu.zsh/auto-fu.zsh
+zle-line-init () {auto-fu-init;}
+zle -N zle-line-init
+zstyle ':completion:*' completer _oldlist _complete

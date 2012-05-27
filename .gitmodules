@@ -16,3 +16,6 @@
 [submodule ".zsh.d/public_repos/z"]
 	path = .zsh.d/public_repos/z
 	url = https://github.com/rupa/z.git
+[submodule ".zsh.d/public_repos/auto-fu.zsh"]
+	path = .zsh.d/public_repos/auto-fu.zsh
+	url = https://github.com/hchbaw/auto-fu.zsh.git
