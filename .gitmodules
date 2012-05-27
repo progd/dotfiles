@@ -16,3 +16,6 @@
 [submodule ".zsh.d/public_repos/auto-fu.zsh"]
 	path = .zsh.d/public_repos/auto-fu.zsh
 	url = https://github.com/hchbaw/auto-fu.zsh.git
+[submodule ".zsh.d/public_repos/oh-my-zsh"]
+	path = .zsh.d/public_repos/oh-my-zsh
+	url = git@github.com:progd/oh-my-zsh.git
