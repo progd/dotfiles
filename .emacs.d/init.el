@@ -60,6 +60,11 @@
     (backward-kill-word 1)))
 (global-set-key "\C-w" 'backward-kill-word-or-kill-region)
 
+;;; カーソルを移動せずにスクロール
+;; cf. http://d.hatena.ne.jp/uhiaha888/20101110/1289399913
+(global-set-key "\M-n" (lambda () (interactive) (scroll-up 1)))
+(global-set-key "\M-p" (lambda () (interactive) (scroll-down 1)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 環境変数の設定                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
