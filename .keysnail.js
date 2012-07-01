@@ -204,7 +204,7 @@ key.setGlobalKey(['C-x', 'g'], function (ev) {
     command.focusToById("searchbar");
 }, '検索バーへフォーカス', true);
 
-key.setGlobalKey(['C-x', 't'], function (ev) {
+key.setGlobalKey(['C-i'], function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, '最初のインプットエリアへフォーカス', true);
 
