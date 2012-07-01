@@ -364,10 +364,6 @@ key.setViewKey(['C-x', 'h'], function (ev) {
     goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
 
-key.setViewKey('C-i', function (ev) {
-    command.focusElement(command.elementsRetrieverTextarea, 0);
-}, '最初のインプットエリアへフォーカス', true);
-
 key.setViewKey('M-p', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, true, true);
 }, '次のボタンへフォーカスを当てる');
@@ -590,10 +586,6 @@ key.setCaretKey('F', function (ev) {
 key.setCaretKey(['C-x', 'h'], function (ev) {
     goDoCommand("cmd_selectAll");
 }, 'すべて選択', true);
-
-key.setCaretKey('C-i', function (ev) {
-    command.focusElement(command.elementsRetrieverTextarea, 0);
-}, '最初のインプットエリアへフォーカス', true);
 
 key.setCaretKey('M-p', function (ev) {
     command.walkInputElement(command.elementsRetrieverButton, true, true);
