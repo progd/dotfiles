@@ -50,6 +50,13 @@ if ! type vim > /dev/null 2>&1; then
     alias vim=vi
 fi
 
+### Debian 系の alias
+if [ -f /etc/debian_version ]; then
+    alias acs='apt-cache search'
+    alias acshow='apt-cache show'
+    alias agi='apt-get install'
+fi
+
 ### fpath
 fpath=(
     $HOME/.zsh.d/site_functions
