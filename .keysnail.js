@@ -336,11 +336,11 @@ key.setViewKey([['M->'], ['G']], function (ev) {
     goDoCommand("cmd_scrollBottom");
 }, 'ページ末尾へ移動', true);
 
-key.setViewKey('l', function (ev) {
+key.setViewKey([['l'], ['s']], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'ひとつ右のタブへ');
 
-key.setViewKey('h', function (ev) {
+key.setViewKey([['h'], ['a']], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'ひとつ左のタブへ');
 
