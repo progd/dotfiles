@@ -344,3 +344,10 @@
   ;; 使用するシェルを指定
   (setq multi-term-program "/bin/zsh")
   (setenv "TERMINFO" "~/.terminfo"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; cua-mode                                               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
+
