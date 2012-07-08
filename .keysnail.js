@@ -135,7 +135,7 @@ local["^http://www.google.(co.jp|com)/reader/view/"] = [
 
 // ========================= Special key settings ========================== //
 
-key.quitKey              = "ESC";
+key.quitKey              = "C-g";
 key.helpKey              = "<f1>";
 key.escapeKey            = "C-q";
 key.macroStartKey        = "undefined";
