@@ -30,19 +30,6 @@ case $OSTYPE in
         ;;
 esac
 
-############################################################
-## ページャ                                               ##
-############################################################
-if [ "$PAGER" = "lv" ]; then
-    ## -c: ANSIエスケープシーケンスの色付けなどを有効にする。
-    ## -l: 1行が長くと折り返されていても1行として扱う。
-    ##     （コピーしたときに余計な改行を入れない。）
-    export LV="-c -l"
-else
-    ## lvがなくてもlvでページャーを起動する。
-    alias lv="$PAGER"
-fi
-
 ## エディタの設定: vimを使う
 export EDITOR=vim
 ## vimがなくてもvimでviを起動する。
@@ -54,7 +41,6 @@ fi
 if [ -f /etc/debian_version ]; then
     alias acs='apt-cache search'
     alias acshow='apt-cache show'
-    alias agi='apt-get install'
 fi
 
 ### fpath
