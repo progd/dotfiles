@@ -376,10 +376,6 @@ key.setViewKey('c', function (ev, arg) {
     ext.exec("list-hateb-comments", arg);
 }, 'はてなブックマークのコメントを一覧表示', true);
 
-key.setViewKey('a', function (ev, arg) {
-    ext.exec("hateb-bookmark-this-page");
-}, 'このページをはてなブックマークに追加', true);
-
 key.setViewKey('d', function (ev) {
     BrowserCloseTabOrWindow();
 }, 'タブ / ウィンドウを閉じる');
