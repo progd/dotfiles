@@ -160,6 +160,7 @@
   (set-frame-parameter nil 'alpha 85))
 
 ;;; フォントの設定
+;; Mac
 (when (eq window-system 'ns)
   (set-face-attribute 'default nil
                       :family "Ricty"
@@ -168,6 +169,16 @@
   (set-fontset-font
    nil 'japanese-jisx0208
    (font-spec :family "Ricty")))
+
+;; Linux
+(when (eq window-system 'x)
+  (set-face-attribute 'default nil
+                      :family "Migu 1M"
+                      :height 100)
+
+  (set-fontset-font
+   nil 'japanese-jisx0208
+   (font-spec :family "Migu 1M")))
 
 ;;; 対応する括弧をハイライトする
 (show-paren-mode t)
