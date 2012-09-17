@@ -5,7 +5,7 @@ const PLUGIN_INFO =
     <name>HoK</name>
     <description>Hit a hint for KeySnail</description>
     <description lang="ja">キーボードでリンクを開く</description>
-    <version>1.3.2</version>
+    <version>1.3.3</version>
     <updateURL>https://github.com/mooz/keysnail/raw/master/plugins/hok.ks.js</updateURL>
     <iconURL>https://github.com/mooz/keysnail/raw/master/plugins/icon/hok.icon.png</iconURL>
     <author mail="stillpedant@gmail.com" homepage="http://d.hatena.ne.jp/mooz/">mooz</author>
@@ -943,8 +943,18 @@ var hok = function () {
             hintColorLink : hintColorForm;
     }
 
+    function getAliveLastMatchHint() {
+        try {
+            if (lastMatchHint && lastMatchHint.style)
+                return lastMatchHint;
+        } catch (x) {
+            lastMatchHint = null;
+        }
+        return null;
+    }
+
     function blurHint() {
-        if (lastMatchHint)
+        if (getAliveLastMatchHint())
         {
             lastMatchHint.style.backgroundColor = getHintColor(lastMatchHint.element);
             lastMatchHint = null;
@@ -1099,7 +1109,7 @@ var hok = function () {
                 updateHeaderMatchHints();
             return;
         case 'Enter':
-            if (lastMatchHint) {
+            if (getAliveLastMatchHint()) {
                 let elem = lastMatchHint.element;
                 destruction();
                 fire(elem);
@@ -1125,7 +1135,7 @@ var hok = function () {
 
         // fire if hint is unique
         if (uniqueFire && !supressUniqueFire) {
-            if (foundCount == 1 && lastMatchHint) {
+            if (foundCount == 1 && getAliveLastMatchHint()) {
                 var targetElem = lastMatchHint.element;
                 destruction();
 
