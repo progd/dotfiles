@@ -120,13 +120,24 @@
              '(:eval (count-lines-and-chars)))
 
 ;;; フレームの初期位置とサイズの設定
-(when window-system
+;; Mac
+(when (eq window-system 'ns)
   (setq initial-frame-alist
         (append
          '((top . 0)      ; フレームの Y 位置(ピクセル数)
            (left . 0)     ; フレームの X 位置(ピクセル数)
            (width . 96)    ; フレーム幅(文字数)
            (height . 66)   ; フレーム高(文字数)
+           ) initial-frame-alist)))
+
+;; Linux
+(when (eq window-system 'x)
+  (setq initial-frame-alist
+        (append
+         '((top . 0)      ; フレームの Y 位置(ピクセル数)
+           (left . 25)     ; フレームの X 位置(ピクセル数)
+           (width . 192)    ; フレーム幅(文字数)
+           (height . 50)   ; フレーム高(文字数)
            ) initial-frame-alist)))
 
 ;;; タイトルバーにファイルのフルパスを表示
@@ -174,7 +185,7 @@
 (when (eq window-system 'x)
   (set-face-attribute 'default nil
                       :family "Migu 1M"
-                      :height 100)
+                      :height 120)
 
   (set-fontset-font
    nil 'japanese-jisx0208
