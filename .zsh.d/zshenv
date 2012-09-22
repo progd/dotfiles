@@ -47,3 +47,6 @@ fi
 fpath=(
     $HOME/.zsh.d/site_functions
     $fpath)
+
+### rvm
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
