@@ -610,3 +610,7 @@ key.setViewKey(['z', 'i'], function (ev) {
 key.setGlobalKey('M-w', function (ev) {
     command.copyRegion(ev);
 }, '選択中のテキストをコピー');
+
+key.setEditKey('C-w', function (ev) {
+    command.deleteBackwardWord(ev);
+}, '前の一単語を削除');
