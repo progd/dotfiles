@@ -606,3 +606,7 @@ key.setViewKey(['z', 'o'], function (ev) {
 key.setViewKey(['z', 'i'], function (ev) {
     FullZoom.enlarge();
 }, 'テキストサイズを大きく');
+
+key.setGlobalKey('M-w', function (ev) {
+    command.copyRegion(ev);
+}, '選択中のテキストをコピー');
