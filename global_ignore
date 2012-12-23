@@ -13,7 +13,7 @@ tramp
 *_archive
 
 ## Linux.gitignore
-.*
+# .*
 !.gitignore
 *~
 
