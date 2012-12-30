@@ -19,3 +19,6 @@
 [submodule ".zsh.d/public_repos/oh-my-zsh"]
 	path = .zsh.d/public_repos/oh-my-zsh
 	url = git@github.com:progd/oh-my-zsh.git
+[submodule ".emacs.d/public_repos/rhtml"]
+	path = .emacs.d/public_repos/rhtml
+	url = https://github.com/eschulte/rhtml.git

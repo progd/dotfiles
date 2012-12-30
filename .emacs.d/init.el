@@ -333,6 +333,9 @@
 (require 'haml-mode nil t)
 (require 'sass-mode nil t)
 
+;; rhtml-mode
+(require 'rhtml-mode nil t)
+
 ;; rvm
 (when (require 'rvm nil t)
   (rvm-use-default))
