@@ -101,10 +101,10 @@ precmd() {
 }
 
 ## auto-fu
-source ~/.zsh.d/public_repos/auto-fu.zsh/auto-fu.zsh
-zle-line-init () {auto-fu-init;}
-zle -N zle-line-init
-zstyle ':completion:*' completer _oldlist _complete
+#source ~/.zsh.d/public_repos/auto-fu.zsh/auto-fu.zsh
+#zle-line-init () {auto-fu-init;}
+#zle -N zle-line-init
+#zstyle ':completion:*' completer _oldlist _complete
 
 ## ページャ
 if type -p lv > /dev/null; then
