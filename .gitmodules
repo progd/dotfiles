@@ -22,3 +22,6 @@
 [submodule ".emacs.d/public_repos/rhtml"]
 	path = .emacs.d/public_repos/rhtml
 	url = https://github.com/eschulte/rhtml.git
+[submodule ".emacs.d/public_repos/direx-el"]
+	path = .emacs.d/public_repos/direx-el
+	url = https://github.com/m2ym/direx-el.git
