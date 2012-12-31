@@ -1,1 +1,16 @@
 " vim: set ft=vimperator:
+
+set hintchars="abcdefghijklmnopqrstuvwxyz"
+set toolbars=noaddons,nobookmarks,menu,nonavigation,tabs
+set tabnumbers
+
+set! general.smoothScroll=false
+
+noremap j <C-d>
+noremap k <C-u>
+noremap l gt
+noremap h gT
+noremap J j
+noremap K k
+
+highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
