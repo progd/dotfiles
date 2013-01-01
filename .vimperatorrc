@@ -6,11 +6,25 @@ set tabnumbers
 
 set! general.smoothScroll=false
 
-noremap j <C-d>
-noremap k <C-u>
+" j/k のスクロール幅を変更
+noremap j 10j
+noremap k 10k
+
+" l/h でタブ移動
 noremap l gt
 noremap h gT
-noremap J j
-noremap K k
+
+" 文字入力時に emacs っぽいキーバインド
+noremap  <C-g> <esc>
+inoremap <C-g> <esc>
+cnoremap <C-g> <esc>
+inoremap <C-p> <up>
+cnoremap <C-p> <up>
+inoremap <C-n> <down>
+cnoremap <C-n> <down>
+
+let mapleader = ','
+nnoremap <leader>t :tabopen google<space>
+nnoremap <leader>o :open google<space>
 
 highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
