@@ -22,6 +22,14 @@ inoremap <C-p> <up>
 cnoremap <C-p> <up>
 inoremap <C-n> <down>
 cnoremap <C-n> <down>
+inoremap <C-f> <right>
+cnoremap <C-f> <right>
+inoremap <C-b> <left>
+cnoremap <C-b> <left>
+inoremap <C-m> <CR>
+cnoremap <C-m> <CR>
+inoremap <C-j> <CR>
+cnoremap <C-j> <CR>
 
 nnoremap <BS> :back<CR>
 nnoremap <S-h> :back<CR>
