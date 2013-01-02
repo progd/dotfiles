@@ -23,8 +23,16 @@ cnoremap <C-p> <up>
 inoremap <C-n> <down>
 cnoremap <C-n> <down>
 
+nnoremap <BS> :back<CR>
+nnoremap <S-h> :back<CR>
+nnoremap <S-l> :forward<CR>
+
 let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
 nnoremap <leader>o :open google<space>
 
+" ヒントのスタイル
 highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
+
+" ブックマークレット
+qmark b javascript:location.href='http://b.hatena.ne.jp/entry/'+escape(location.href);
