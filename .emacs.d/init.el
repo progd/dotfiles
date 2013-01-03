@@ -389,4 +389,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; direx                                                  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'direx nil t)
+(when (require 'direx nil t)
+  (global-set-key (kbd "C-x C-d") 'direx:find-directory))
