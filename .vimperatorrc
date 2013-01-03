@@ -14,6 +14,11 @@ noremap k 10k
 noremap l gt
 noremap h gT
 
+" C-l/h で進む/戻る
+noremap <C-l> :forward<CR>
+noremap <C-h> :back<CR>
+noremap <BS> :back<CR>
+
 " 文字入力時に emacs っぽいキーバインド
 noremap  <C-g> <esc>
 inoremap <C-g> <esc>
@@ -30,10 +35,6 @@ inoremap <C-m> <CR>
 cnoremap <C-m> <CR>
 inoremap <C-j> <CR>
 cnoremap <C-j> <CR>
-
-nnoremap <BS> :back<CR>
-nnoremap <S-h> :back<CR>
-nnoremap <S-l> :forward<CR>
 
 let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
