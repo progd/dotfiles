@@ -29,8 +29,12 @@ inoremap <C-n> <down>
 cnoremap <C-n> <down>
 inoremap <C-f> <right>
 cnoremap <C-f> <right>
+inoremap <A-f> <C-right>
+cnoremap <A-f> <C-right>
 inoremap <C-b> <left>
 cnoremap <C-b> <left>
+inoremap <A-b> <C-left>
+cnoremap <A-b> <C-left>
 inoremap <C-m> <CR>
 cnoremap <C-m> <CR>
 inoremap <C-j> <CR>
