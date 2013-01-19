@@ -1,5 +1,11 @@
 ;;; デバッグモードでの起動
 (require 'cl)
+
+;;; server の設定
+(require 'server)
+(unless (server-running-p) ;; 複数サーバ起動を防ぐ
+  (server-start))
+
 ;; Emacsからの質問をy/nで回答する
 ;; (fset 'yes-or-no-p 'y-or-n-p)
 ;; スタートアップメッセージを非表示

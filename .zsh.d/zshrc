@@ -78,6 +78,7 @@ alias f=ls
 
 alias hisg='fc -l 1 | grep'
 alias tm='tmux attach || tmux'
+alias e='emacsclient -n'
 
 ## 補完侯補をメニューから選択する。
 ### select=2: 補完候補を一覧から選択する。
