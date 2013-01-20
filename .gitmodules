@@ -25,3 +25,6 @@
 [submodule ".emacs.d/public_repos/direx-el"]
 	path = .emacs.d/public_repos/direx-el
 	url = https://github.com/m2ym/direx-el.git
+[submodule ".emacs.d/public_repos/popwin-el"]
+	path = .emacs.d/public_repos/popwin-el
+	url = https://github.com/m2ym/popwin-el.git

@@ -313,6 +313,12 @@
 (require 'egg nil t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; popwin-el                                              ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'popwin nil t)
+  (setq display-buffer-function 'popwin:display-buffer))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Ruby                                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
@@ -396,4 +402,7 @@
 ;; direx                                                  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (require 'direx nil t)
-  (global-set-key (kbd "C-x C-d") 'direx:find-directory))
+  (global-set-key (kbd "C-x C-d") 'direx:find-directory)
+  (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
+  (push '(direx:direx-mode :position left :width 60 :dedicated t)
+        popwin:special-display-config))
