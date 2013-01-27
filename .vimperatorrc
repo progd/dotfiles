@@ -49,6 +49,7 @@ highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-si
 
 " ブックマークレット
 qmark b javascript:location.href='http://b.hatena.ne.jp/entry/'+escape(location.href);
+qmark i javascript:location.href='http://www.instapaper.com/m?u='+escape(location.href);
 
 " load_plugin.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/"
