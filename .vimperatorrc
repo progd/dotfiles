@@ -1,10 +1,34 @@
 " vim: set ft=vimperator:
 
+" prefs
+" ======================================================================
+" ダウンロードマネージャを表示しない
+set! browser.download.manager.showWhenStarting=false
+
+" 最後のタブを閉じたときに Firefox を終了しない
+set! browser.tabs.closeWindowWithLastTab=false
+
+"ページのアクセスキーを無効化
+set! ui.key.contentAccess=0
+
+" ポップアップ許可数を拡張 cf.http://la.ma.la/blog/diary_200611171115.htm
+set! dom.popup_maximum=9999
+
+" Gmail/LDR/はてブでは新規タブをバックグラウンドで開く
+autocmd LocationChange '^(?!https?://(mail\.google\.com/(mail|a)/|reader\.livedoor\.com/reader/|b\.hatena\.ne\.jp/(?!(entry|articles|guide))))' :set! browser.tabs.loadDivertedInBackground=false
+autocmd LocationChange '^https?://(mail\.google\.com/(mail|a)/|reader\.livedoor\.com/reader/|b\.hatena\.ne\.jp/(?!(entry|articles|guide)))' :set! browser.tabs.loadDivertedInBackground=true
+
 set hintchars="abcdefghijklmnopqrstuvwxyz"
 set toolbars=noaddons,nobookmarks,menu,nonavigation,tabs
 set tabnumbers
 
 set! general.smoothScroll=false
+
+" ヒントのスタイル
+highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
+
+" mappings
+" ======================================================================
 
 " j/k のスクロール幅を変更
 noremap j 10j
@@ -44,13 +68,22 @@ let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
 nnoremap <leader>o :open google<space>
 
-" ヒントのスタイル
-highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
-
 " ブックマークレット
 qmark b javascript:location.href='http://b.hatena.ne.jp/entry/'+escape(location.href);
 qmark i javascript:location.href='http://www.instapaper.com/m?u='+escape(location.href);
 
+" command
+" ======================================================================
+" autocmd VimperatorEnter .* <args> を lazy コマンドとして登録
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+
+" plugins
+" ======================================================================
+
 " load_plugin.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/"
-let g:plugin_loader_plugins = "_libly,pluginManager,walk-input"
+let g:plugin_loader_plugins = "_libly,pluginManager,walk-input,feedSomeKeys_3"
+
+" webservice 最適化
+lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj J,<Space> K,<S-Space> q w g
+lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
