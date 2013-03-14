@@ -85,5 +85,5 @@ let g:plugin_loader_roots = "~/projects/vimperator-plugins/"
 let g:plugin_loader_plugins = "_libly,pluginManager,walk-input,feedSomeKeys_3"
 
 " webservice 最適化
-lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj J,<Space> K,<S-Space> q w g
+lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj J,<Space> K,<S-Space>
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
