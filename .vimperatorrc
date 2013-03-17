@@ -71,6 +71,7 @@ nnoremap <leader>o :open google<space>
 " ブックマークレット
 qmark b javascript:location.href='http://b.hatena.ne.jp/entry/'+escape(location.href);
 qmark i javascript:location.href='http://www.instapaper.com/m?u='+escape(location.href);
+qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+location.href
 
 " command
 " ======================================================================
