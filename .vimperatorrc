@@ -63,6 +63,7 @@ inoremap <C-m> <CR>
 cnoremap <C-m> <CR>
 inoremap <C-j> <CR>
 cnoremap <C-j> <CR>
+inoremap <A-d> <C-del>
 
 let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
@@ -72,6 +73,26 @@ nnoremap <leader>o :open google<space>
 qmark b javascript:location.href='http://b.hatena.ne.jp/entry/'+escape(location.href);
 qmark i javascript:location.href='http://www.instapaper.com/m?u='+escape(location.href);
 qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+location.href
+qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURIComponent(location.href),'_blank'))
+
+" ex mode時IMEをOFF
+style -name commandline-ime chrome://* #liberator-commandline-command input { ime-mode: inactive; }
+
+" autocmd 駆動時のエコーをやめる https://gist.github.com/anekos/1028562
+js <<EOM
+let (original = liberator.echomsg)
+  liberator.echomsg = function (msg) {
+    const REAC = RegExp('@chrome://liberator/content/autocommands\\.js:\\d+');
+    if (Error().stack.split(/\n/).some(RegExp.prototype.test.bind(REAC)) && /Executing .* Auto commands for .*/.test(msg))
+      liberator.log(msg);
+    else
+      original.apply(liberator, arguments);
+  };
+EOM
+
+" addons
+" ツリー型タブ
+set! extensions.treestyletab.allowSubtreeCollapseExpand.vertical=false
 
 " command
 " ======================================================================
@@ -83,8 +104,57 @@ command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 
 " load_plugin.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/"
-let g:plugin_loader_plugins = "_libly,pluginManager,walk-input,feedSomeKeys_3"
+let g:plugin_loader_plugins = "_libly,pluginManager,walk-input,feedSomeKeys_3,stella"
 
-" webservice 最適化
+" feedSomKeys_3.js webservice 最適化
 lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
-lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
+
+" stella.js
+js <<EOM
+function addLocalMappings(buffer, maps) {
+  maps.forEach(
+    function (map) {
+      let [cmd, action, extra] = map;
+      let actionFunc = action;
+      extra || (extra = {});
+
+      if (typeof action == "string") {
+        if (action.charAt(0) == ':')
+          actionFunc = extra.open ? function () commandline.open("", action, modes.EX)
+                                  : function () liberator.execute(action);
+        else
+          actionFunc = function () events.feedkeys(action, extra.noremap, true);
+      }
+      extra.matchingUrls = buffer;
+      mappings.addUserMap(
+        [modes.NORMAL],
+        [cmd],
+        "Local mapping for " + buffer,
+        actionFunc,
+        extra
+      );
+    }
+  );
+}
+addLocalMappings(
+  /^(http:\/\/(es|www).nicovideo.jp\/(watch|playlist\/mylist)|http:\/\/(jp|www)\.youtube\.com\/watch|http:\/\/(www\.)?vimeo\.com\/(channels\/(hd)?#)?\d+)/,
+  [
+    ['<C-g>', ':pageinfo S', ],
+    ['p', ':stplay', ],
+    ['m', ':stmute', ],
+    [',c', ':stcomment', ],
+    ['zz', ':stlarge', ],
+    ['r', ':strepeat', ],
+    ['^', ':stvolume! 10', ],
+    ['-', ':stvolume! -10', ],
+    ['<', ':stseek! -10', ],
+    ['>', ':stseek! 10', ],
+    ['v', ':stvolume ', {open: true}],
+    ['V', ':stvolume! ', {open: true}],
+    ['o', ':strelations ', {open: true}],
+    ['O', ':strelations! ', {open: true}],
+  ]
+);
+EOM
+
