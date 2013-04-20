@@ -14,6 +14,9 @@ set! ui.key.contentAccess=0
 " ポップアップ許可数を拡張 cf.http://la.ma.la/blog/diary_200611171115.htm
 set! dom.popup_maximum=9999
 
+" 自動アップデート無効
+set! app.update.auto=false
+
 " Gmail/LDR/はてブでは新規タブをバックグラウンドで開く
 autocmd LocationChange '^(?!https?://(mail\.google\.com/(mail|a)/|reader\.livedoor\.com/reader/|b\.hatena\.ne\.jp/(?!(entry|articles|guide))))' :set! browser.tabs.loadDivertedInBackground=false
 autocmd LocationChange '^https?://(mail\.google\.com/(mail|a)/|reader\.livedoor\.com/reader/|b\.hatena\.ne\.jp/(?!(entry|articles|guide)))' :set! browser.tabs.loadDivertedInBackground=true
