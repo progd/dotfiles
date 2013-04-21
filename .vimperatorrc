@@ -17,6 +17,9 @@ set! dom.popup_maximum=9999
 " 自動アップデート無効
 set! app.update.auto=false
 
+" 新規タブをバックグラウンドで開く
+set! browser.tabs.loadDivertedInBackground=true
+
 set hintchars="abcdefghijklmnopqrstuvwxyz"
 set toolbars=noaddons,nobookmarks,menu,nonavigation,tabs
 set tabnumbers
