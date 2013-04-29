@@ -71,6 +71,7 @@ bindkey '' history-beginning-search-backward-end
 bindkey '' history-beginning-search-forward-end
 
 # 共通の alias の設定
+alias ls='ls --group-directories-first --color=always'
 alias d='ls -lhtr'
 alias l='ls -lha'
 alias a='ls -a'
