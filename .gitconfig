@@ -1,0 +1,7 @@
+[user]
+	name = progd
+[core]
+	editor = vim
+	pager = lv
+[color]
+	ui = auto
