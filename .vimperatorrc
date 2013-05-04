@@ -67,6 +67,11 @@ inoremap <C-j> <CR>
 cnoremap <C-j> <CR>
 inoremap <A-d> <C-del>
 
+" zoom in/out を text zoom でなく full zoom にする
+nnoremap zz zZ
+nnoremap zi zI
+nnoremap zo zO
+
 let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
 nnoremap <leader>o :open google<space>
