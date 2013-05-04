@@ -3,6 +3,7 @@
 cd ~
 ln -s -f ~/projects/dotfiles/.emacs.d
 ln -s -f ~/projects/dotfiles/.gitconfig
+ln -s -f ~/projects/dotfiles/.gitignore_global
 ln -s -f ~/projects/dotfiles/.keysnail.d
 ln -s -f ~/projects/dotfiles/.keysnail.js
 ln -s -f ~/projects/dotfiles/.tmux.conf

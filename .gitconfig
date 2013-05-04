@@ -3,5 +3,6 @@
 [core]
 	editor = vim
 	pager = lv
+    excludesfile = ~/.gitignore_global
 [color]
 	ui = auto
