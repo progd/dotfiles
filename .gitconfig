@@ -1,5 +1,6 @@
 [user]
 	name = progd
+    email = gprogd@gmail.com
 [core]
 	editor = vim
 	pager = lv
