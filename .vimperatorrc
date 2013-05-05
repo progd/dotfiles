@@ -159,8 +159,6 @@ addLocalMappings(
     ['>', ':stseek! 10', ],
     ['v', ':stvolume ', {open: true}],
     ['V', ':stvolume! ', {open: true}],
-    ['o', ':strelations ', {open: true}],
-    ['O', ':strelations! ', {open: true}],
   ]
 );
 EOM
