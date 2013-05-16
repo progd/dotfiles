@@ -29,6 +29,9 @@ set! general.smoothScroll=false
 " ヒントのスタイル
 highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
 
+" アドオン: ツリー型タブでインデントしない
+set! extensions.treestyletab.maxTreeLevel.vertical=0
+
 " mappings
 " ======================================================================
 
@@ -76,8 +79,9 @@ let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
 nnoremap <leader>o :open google<space>
 
+nnoremap <leader>v :open javascript:location.href='http://b.hatena.ne.jp/entry/'+location.href<CR>
+
 " ブックマークレット
-qmark b javascript:location.href='http://b.hatena.ne.jp/entry/'+escape(location.href);
 qmark i javascript:location.href='http://www.instapaper.com/m?u='+escape(location.href);
 qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+location.href
 qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURIComponent(location.href),'_blank'))
