@@ -20,8 +20,11 @@ set! app.update.auto=false
 " 新規タブをバックグラウンドで開く
 set! browser.tabs.loadDivertedInBackground=true
 
+" ヒントに使用する文字
 set hintchars="abcdefghijklmnopqrstuvwxyz"
-set toolbars=noaddons,nobookmarks,menu,nonavigation,tabs
+" GUI 表示設定: タブのみ表示
+set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
+" タブに番号を表示
 set tabnumbers
 
 set! general.smoothScroll=false
