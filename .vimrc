@@ -15,13 +15,14 @@ let ruby_space_errors=1
 set number
 
 " タブ・インデント設定
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set cindent
 
 " 検索
+set ignorecase
 set smartcase
 set incsearch
 
