@@ -124,6 +124,7 @@ let g:plugin_loader_plugins = "_libly,pluginManager,walk-input,feedSomeKeys_3,st
 " feedSomKeys_3.js webservice 最適化
 lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='^https?://soundcloud\.com/' <Space> <CR> s m <Left> <Right> <S-Left> <S-Right> <S-Up> <S-Down> 0 1 2 3 4 5 6 7 8 9
 
 " stella.js
 js <<EOM
