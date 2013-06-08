@@ -35,6 +35,9 @@ highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-si
 " アドオン: ツリー型タブでインデントしない
 set! extensions.treestyletab.maxTreeLevel.vertical=0
 
+" エディタ
+set editor=C:\\\\Users\\\\progd\\\\bin\\\\vim73-kaoriya-win64\\\\gvim.exe\ -f
+
 " mappings
 " ======================================================================
 
