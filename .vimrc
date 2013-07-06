@@ -29,3 +29,5 @@ set incsearch
 " 対応する括弧を強調
 set showmatch
 
+" バックアップファイルを作成しない
+set nobackup
