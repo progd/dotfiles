@@ -13,8 +13,6 @@ case $OSTYPE in
             # for Homebrew
             /usr/local/bin(N-/)
             /usr/local/sbin(N-/)
-            # ruby (Homebrew)
-            /usr/local/Cellar/ruby/2.0.0-p247/bin(N-/)
             $path)
         ;;
 esac
@@ -24,8 +22,6 @@ typeset -U manpath
 case $OSTYPE in
     *darwin*)
         manpath=(
-            # for Homebrew
-            /usr/local/Cellar/ruby/2.0.0-p247/share/man(N-/)
             $manpath)
         ;;
 esac
@@ -49,5 +45,5 @@ fpath=(
     $HOME/.zsh.d/site_functions
     $fpath)
 
-### rvm
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+### rbenv
+eval "$(rbenv init -)"
