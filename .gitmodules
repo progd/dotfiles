@@ -28,3 +28,9 @@
 [submodule ".emacs.d/public_repos/popwin-el"]
 	path = .emacs.d/public_repos/popwin-el
 	url = https://github.com/m2ym/popwin-el.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc
