@@ -23,6 +23,9 @@ filetype plugin indent on
 filetype indent on
 filetype plugin on
 
+" Installation check.
+NeoBundleCheck
+
 " ruby
 compiler ruby
 let ruby_space_errors=1
