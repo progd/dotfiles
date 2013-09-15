@@ -15,6 +15,17 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
+if has("lua")
+  NeoBundleLazy 'Shougo/neocomplete', { 'autoload' : {
+        \   'insert' : 1,
+        \ }}
+else
+  NeoBundleLazy 'Shougo/neocomplete', {
+        \ 'autoload' : {
+        \   'insert' : 1,
+        \ },
+        \ }
+endif
 
 " シンタックスハイライト有効、暗い背景用
 syntax on
