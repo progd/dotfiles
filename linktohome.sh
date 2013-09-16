@@ -10,7 +10,6 @@ ln -s -f ~/projects/dotfiles/.tmux.conf
 ln -s -f ~/projects/dotfiles/.vimperator
 ln -s -f ~/projects/dotfiles/.vimperatorrc
 ln -s -f ~/projects/dotfiles/.vim
-ln -s -f ~/projects/dotfiles/.vimrc
 ln -s -f ~/projects/dotfiles/.zsh.d
 ln -s -f ~/projects/dotfiles/.zshenv
 ln -s -f ~/projects/dotfiles/.zshrc
