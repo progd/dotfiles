@@ -119,8 +119,3 @@ else
     ## lvがなくてもlvでページャーを起動する。
     alias lv="$PAGER"
 fi
-
-## ruby
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
-    source $HOME/.rvm/scripts/rvm
-fi
