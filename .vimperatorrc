@@ -22,8 +22,8 @@ set! browser.tabs.loadDivertedInBackground=true
 
 " ヒントに使用する文字
 set hintchars="abcdefghijklmnopqrstuvwxyz"
-" GUI 表示設定: タブのみ表示
-set toolbars=noaddons,nobookmarks,nomenu,nonavigation,tabs
+" GUI 表示設定
+set toolbars=addons,nobookmarks,nomenu,nonavigation,tabs
 " タブに番号を表示
 set tabnumbers
 
@@ -174,4 +174,3 @@ addLocalMappings(
   ]
 );
 EOM
-
