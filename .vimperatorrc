@@ -122,7 +122,7 @@ command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 
 " load_plugin.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/"
-let g:plugin_loader_plugins = "_libly,walk-input,feedSomeKeys_3,stella"
+let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,stella"
 
 " feedSomKeys_3.js webservice 最適化
 lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
