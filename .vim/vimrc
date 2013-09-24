@@ -26,6 +26,7 @@ else
         \ },
         \ }
 endif
+NeoBundle 'thinca/vim-quickrun'
 
 " シンタックスハイライト有効、暗い背景用
 syntax on

@@ -119,3 +119,11 @@ else
     ## lvがなくてもlvでページャーを起動する。
     alias lv="$PAGER"
 fi
+
+## ssh-agent
+if [ -z "`ps -u $USER | grep ssh-agent`" ]; then
+    ssh-agent > ~/.ssh/env
+fi
+if [ -f ~/.ssh/env ]; then
+    source ~/.ssh/env > /dev/null
+fi
