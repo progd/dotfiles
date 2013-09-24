@@ -27,6 +27,7 @@ else
         \ }
 endif
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tyru/open-browser.vim'
 
 " シンタックスハイライト有効、暗い背景用
 syntax on
@@ -62,3 +63,6 @@ set showmatch
 
 " バックアップファイルを作成しない
 set nobackup
+
+let g:quickrun_config = {}
+let g:quickrun_config.markdown = {'outputter': 'browser'}
