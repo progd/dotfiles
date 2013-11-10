@@ -1,6 +1,6 @@
 colorscheme darkblue
 " ウインドウの幅
-set columns=100
+set columns=120
 " ウインドウの高さ
 set lines=52
 
