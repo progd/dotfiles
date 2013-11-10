@@ -29,6 +29,9 @@ endif
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'othree/eregex.vim'
+NeoBundle 'Shougo/unite.vim'
+
+let mapleader = ","
 
 " シンタックスハイライト有効、暗い背景用
 syntax on
@@ -67,3 +70,13 @@ set nobackup
 
 let g:quickrun_config = {}
 let g:quickrun_config.markdown = {'outputter': 'browser'}
+
+"" unite.vim {{{
+" unite.vim keymap
+nnoremap          <leader>u  :Unite -no-split<Space>
+nnoremap <silent> <leader>f  :Unite<Space>buffer<CR>
+nnoremap <silent> <leader>b  :Unite<Space>bookmark<CR>
+nnoremap <silent> <leader>m  :Unite<Space>file_mru<CR>
+nnoremap <silent> <leader>r  :UniteWithBufferDir file<CR>
+nnoremap <silent> <leader>vr :UniteResume<CR>
+"" }}}
