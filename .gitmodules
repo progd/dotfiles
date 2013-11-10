@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/open-browser.vim"]
 	path = .vim/bundle/open-browser.vim
 	url = https://github.com/tyru/open-browser.vim.git
+[submodule ".vim/bundle/eregex.vim"]
+	path = .vim/bundle/eregex.vim
+	url = https://github.com/othree/eregex.vim

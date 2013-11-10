@@ -28,6 +28,7 @@ else
 endif
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'othree/eregex.vim'
 
 " シンタックスハイライト有効、暗い背景用
 syntax on
