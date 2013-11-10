@@ -32,6 +32,7 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'vim-scripts/kwbdi.vim'
 
 let mapleader = ","
 
@@ -84,4 +85,8 @@ nnoremap <silent> <leader>b  :Unite<Space>bookmark<CR>
 nnoremap <silent> <leader>m  :Unite<Space>file_mru<CR>
 nnoremap <silent> <leader>r  :UniteWithBufferDir file<CR>
 nnoremap <silent> <leader>vr :UniteResume<CR>
+"" }}}
+
+"" kwbdi {{{
+nmap <leader>d <Plug>Kwbd
 "" }}}
