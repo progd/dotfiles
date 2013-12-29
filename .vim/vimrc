@@ -34,6 +34,9 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/kwbdi.vim'
 
+" syntax for vimperatorrc
+NeoBundle 'superbrothers/vim-vimperator'
+
 let mapleader = ","
 
 " シンタックスハイライト有効、暗い背景用

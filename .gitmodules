@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/kwbdi.vim"]
 	path = .vim/bundle/kwbdi.vim
 	url = https://github.com/vim-scripts/kwbdi.vim.git
+[submodule ".vim/bundle/vim-vimperator"]
+	path = .vim/bundle/vim-vimperator
+	url = https://github.com/superbrothers/vim-vimperator.git
