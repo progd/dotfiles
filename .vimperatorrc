@@ -117,6 +117,9 @@ set! extensions.treestyletab.allowSubtreeCollapseExpand.vertical=false
 " autocmd VimperatorEnter .* <args> を lazy コマンドとして登録
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 
+" 履歴とブックマークの管理を開く
+command! bookmarkmanager open chrome://browser/content/places/places.xul
+
 " plugins
 " ======================================================================
 
