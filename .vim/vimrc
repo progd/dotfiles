@@ -67,6 +67,7 @@ set cindent
 set ignorecase
 set smartcase
 set incsearch
+set hlsearch
 
 " 対応する括弧を強調
 set showmatch
