@@ -33,6 +33,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/kwbdi.vim'
+NeoBundle 'scrooloose/nerdcommenter'
 
 " syntax for vimperatorrc
 NeoBundle 'superbrothers/vim-vimperator'
@@ -40,7 +41,7 @@ NeoBundle 'superbrothers/vim-vimperator'
 let mapleader = ","
 
 " シンタックスハイライト有効、暗い背景用
-syntax on
+"syntax on
 set background=dark
 filetype plugin indent on
 filetype indent on
@@ -93,4 +94,8 @@ nnoremap <silent> <leader>vr :UniteResume<CR>
 
 "" kwbdi {{{
 nmap <leader>d <Plug>Kwbd
+"" }}}
+
+"" NERDTree {{{
+nmap <leader>t :NERDTreeToggle<CR>
 "" }}}
