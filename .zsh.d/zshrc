@@ -82,6 +82,8 @@ alias e='emacsclient -n'
 alias bundle='nocorrect bundle'
 alias be='bundle exec'
 
+alias gst='git status -s -b'
+
 ## 補完侯補をメニューから選択する。
 ### select=2: 補完候補を一覧から選択する。
 ###           ただし、補完候補が2つ以上なければすぐに補完する。
