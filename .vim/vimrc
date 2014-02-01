@@ -79,6 +79,8 @@ set nobackup
 set visualbell
 set t_vb = ""
 
+syntax enable
+
 let g:quickrun_config = {}
 let g:quickrun_config.markdown = {'outputter': 'browser'}
 
