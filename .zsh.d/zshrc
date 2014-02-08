@@ -51,6 +51,7 @@ env_color="$fg_bold[white]"
 case $OSTYPE in
     *darwin*)
         env_color="$fg_bold[red]"
+        alias lc='launchctl'
         ;;
 esac
 
