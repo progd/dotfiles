@@ -26,6 +26,8 @@ set hintchars="abcdefghijklmnopqrstuvwxyz"
 set toolbars=addons,nobookmarks,nomenu,nonavigation,tabs
 " タブに番号を表示
 set tabnumbers
+" 補完候補順を タブ, 検索エンジン, ロケーションバーエントリ, ファイル に
+set complete=tslf
 
 set! general.smoothScroll=false
 
