@@ -32,7 +32,7 @@ set complete=tslf
 set! general.smoothScroll=false
 
 " ヒントのスタイル
-highlight Hint font-family: "Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
+highlight Hint font-family: "Ricty Discord","Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: bold; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em;
 
 " アドオン: ツリー型タブでインデントしない
 set! extensions.treestyletab.maxTreeLevel.vertical=0
