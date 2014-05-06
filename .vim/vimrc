@@ -81,6 +81,14 @@ syntax enable
 let g:quickrun_config = {}
 let g:quickrun_config.markdown = {'outputter': 'browser'}
 
+"" emacs-like keybind
+noremap! <C-a>  <Home>
+noremap! <C-e>  <End>
+noremap! <C-b>  <Left>
+noremap! <C-f>  <Right>
+cnoremap <C-p>  <Up>
+cnoremap <C-n>  <Down>
+
 "" unite.vim {{{
 " unite.vim keymap
 nnoremap          <leader>u  :Unite -no-split<Space>
