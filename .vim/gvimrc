@@ -1,4 +1,4 @@
-colorscheme darkblue
+colorscheme desert
 " ウインドウの幅
 set columns=120
 " ウインドウの高さ
@@ -14,8 +14,8 @@ set mousehide
 set guioptions+=a
 
 "フォント関連
-set guifont=Ricty\ Discord:h14
-set guifontwide=Ricty\ Discord:h14
+set guifont=Ricty\ Discord:h12
+set guifontwide=Ricty\ Discord:h12
 set antialias
 " ツールバーを非表示
 set guioptions-=T
