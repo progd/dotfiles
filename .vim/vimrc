@@ -73,6 +73,9 @@ set nobackup
 set visualbell
 set t_vb = ""
 
+" 自動改行しない
+set textwidth=0
+
 syntax enable
 
 let g:quickrun_config = {}
