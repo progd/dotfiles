@@ -7,39 +7,3 @@
 [submodule ".zsh.d/public_repos/oh-my-zsh"]
 	path = .zsh.d/public_repos/oh-my-zsh
 	url = git@github.com:progd/oh-my-zsh.git
-[submodule ".vim/bundle/neobundle.vim"]
-	path = .vim/bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim.git
-[submodule ".vim/bundle/vimproc"]
-	path = .vim/bundle/vimproc
-	url = https://github.com/Shougo/vimproc
-[submodule ".vim/bundle/neocomplete"]
-	path = .vim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule ".vim/bundle/vim-quickrun"]
-	path = .vim/bundle/vim-quickrun
-	url = https://github.com/thinca/vim-quickrun.git
-[submodule ".vim/bundle/open-browser.vim"]
-	path = .vim/bundle/open-browser.vim
-	url = https://github.com/tyru/open-browser.vim.git
-[submodule ".vim/bundle/eregex.vim"]
-	path = .vim/bundle/eregex.vim
-	url = https://github.com/othree/eregex.vim
-[submodule ".vim/bundle/unite.vim"]
-	path = .vim/bundle/unite.vim
-	url = https://github.com/Shougo/unite.vim
-[submodule ".vim/bundle/vim-rails"]
-	path = .vim/bundle/vim-rails
-	url = https://github.com/tpope/vim-rails
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree/
-[submodule ".vim/bundle/kwbdi.vim"]
-	path = .vim/bundle/kwbdi.vim
-	url = https://github.com/vim-scripts/kwbdi.vim.git
-[submodule ".vim/bundle/vim-vimperator"]
-	path = .vim/bundle/vim-vimperator
-	url = https://github.com/superbrothers/vim-vimperator.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
