@@ -27,6 +27,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'vim-scripts/kwbdi.vim'
+NeoBundle 'itchyny/lightline.vim'
 
 call neobundle#end()
 
@@ -50,6 +51,9 @@ NeoBundleCheck
 
 " 行番号を表示
 set number
+
+" ステータスライン
+set laststatus=2
 
 " タブ・インデント設定
 set tabstop=4
