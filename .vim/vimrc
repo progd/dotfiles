@@ -27,6 +27,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'vim-scripts/kwbdi.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'marcus/rsense'
@@ -36,6 +37,8 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 
@@ -85,11 +88,18 @@ set t_vb = ""
 " 自動改行しない
 set textwidth=0
 
+syntax enable
+" }}}
+
+" Filetypes {{{
+" md as markdown, instead of modula2
+augroup MyAutoGroup
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 " ruby
 compiler ruby
 let ruby_space_errors=1
-
-syntax enable
 " }}}
 
 " Keymaps {{{
@@ -133,6 +143,9 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " kwbdi
 nmap <leader>d <Plug>Kwbd
+
+" QuickRun
+nnoremap <silent> <leader>q :QuickRun -outputter/buffer/split ":botright 8sp"<CR>
 " }}}
 
 " Plugins {{{
@@ -189,8 +202,16 @@ let g:vimfiler_safe_mode_by_default = 0
 "" }}}
 
 "" QuickRun {{{
-let g:quickrun_config = {}
-let g:quickrun_config.markdown = {'outputter': 'browser'}
+let g:quickrun_config = {
+      \   '_': {
+      \     'runner' : 'vimproc',
+      \     'runner/vimproc/updatetime' : 60
+      \   },
+      \   'markdown' : {
+      \       'type': 'pandoc',
+      \       'outputter': 'browser'
+      \   },
+      \ }
 "" }}}
 
 "" syntastic, rubocop {{{
@@ -198,5 +219,9 @@ let g:quickrun_config.markdown = {'outputter': 'browser'}
 " active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 "" }}}
 " }}}
