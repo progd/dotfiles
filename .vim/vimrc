@@ -28,6 +28,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite-help'
 NeoBundle 'vim-scripts/kwbdi.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'marcus/rsense'
@@ -39,6 +40,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'slim-template/vim-slim'
 
 call neobundle#end()
 
@@ -48,6 +50,8 @@ NeoBundleCheck
 " }}}
 
 " General settings {{{
+let OSTYPE = system('uname')
+
 let mapleader = ","
 
 " シンタックスハイライト有効、暗い背景用
@@ -112,17 +116,19 @@ cnoremap <C-p>  <Up>
 cnoremap <C-n>  <Down>
 
 " unite.vim keymap
-nnoremap          <leader>u  :Unite -no-split<Space>
-nnoremap <silent> <leader>f  :Unite<Space>buffer<CR>
-nnoremap <silent> <leader>b  :Unite<Space>bookmark<CR>
-nnoremap <silent> <leader>m  :Unite<Space>file_mru<CR>
-nnoremap <silent> <leader>r  :UniteWithBufferDir file<CR>
-nnoremap <silent> <leader>vr :UniteResume<CR>
-nnoremap <silent> <leader>o  :Unite -winwidth=40 -vertical -no-quit outline<CR>
+nnoremap          <leader>u  :<C-u>Unite -no-split<Space>
+nnoremap <silent> <leader>f  :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> <leader>b  :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> <leader>m  :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> <leader>r  :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> <leader>vr :<C-u>UniteResume<CR>
+nnoremap <silent> <leader>o  :<C-u>Unite -winwidth=40 -vertical -no-quit outline<CR>
+nnoremap <silent> <leader>h  :<C-u>Unite help<CR>
+nnoremap <silent> <leader>g  :<C-u>UniteWithBufferDir file_rec/async:!<CR>
 
 " vimfiler keymap
-nnoremap <silent> <leader>e  :VimFilerBufferDir -find<CR>
-nnoremap <silent> <leader>t  :VimFilerBufferDir -find -winwidth=40 -split -simple -no-quit<CR>
+nnoremap <silent> <leader>e  :<C-u>VimFilerBufferDir -find<CR>
+nnoremap <silent> <leader>t  :<C-u>VimFilerBufferDir -find -winwidth=40 -split -simple -no-quit<CR>
 
 " neocomplete
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -146,6 +152,9 @@ nmap <leader>d <Plug>Kwbd
 
 " QuickRun
 nnoremap <silent> <leader>q :QuickRun -outputter/buffer/split ":botright 8sp"<CR>
+
+" vimshell
+nnoremap <silent> <leader>s :VimShell<CR>
 " }}}
 
 " Plugins {{{
@@ -223,5 +232,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"" }}}
+
+"" vimshell {{{
+if OSTYPE == "Darwin\n"
+  let g:vimshell_editor_command = "/usr/local/bin/vim"
+endif
+let g:vimshell_vimshrc_path = '~/.vim/vimshrc'
 "" }}}
 " }}}
