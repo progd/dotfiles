@@ -1,7 +1,6 @@
-" vim: set ft=vimperator:
+" vim: set ft=vimperator foldmethod=marker :
 
-" prefs
-" ======================================================================
+" prefs {{{
 " ダウンロードマネージャを表示しない
 set! browser.download.manager.showWhenStarting=false
 
@@ -20,10 +19,13 @@ set! app.update.auto=false
 " 新規タブをバックグラウンドで開く
 set! browser.tabs.loadDivertedInBackground=true
 
+" 画像の自動ズームをオフ
+set! browser.enable_automatic_image_resizing=false
+
 " ヒントに使用する文字
 set hintchars="abcdefghijklmnopqrstuvwxyz"
 " GUI 表示設定
-set toolbars=addons,nobookmarks,nomenu,nonavigation,tabs
+set gui=noaddons,nobookmarks,menu,nonavigation,tabs
 " タブに番号を表示
 set tabnumbers
 " 補完候補順を タブ, 検索エンジン, ロケーションバーエントリ, ファイル に
@@ -38,10 +40,13 @@ highlight Hint Hint z-index: 10000; font-family: "Ricty Discord","Bitstream Vera
 set! extensions.treestyletab.maxTreeLevel.vertical=0
 
 " エディタ
-set editor=C:\\\\Users\\\\progd\\\\bin\\\\vim73-kaoriya-win64\\\\gvim.exe\ -f
+set editor=C:\\\\Users\\\\progd\\\\bin\\\\vim74-kaoriya-win64\\\\gvim.exe\ -f
 
-" mappings
-" ======================================================================
+" ex mode時IMEをOFF
+style -name commandline-ime chrome://* #liberator-commandline-command input { ime-mode: inactive; }
+" }}}
+
+" mappings {{{
 
 " j/k のスクロール幅を変更
 noremap j 10j
@@ -89,14 +94,21 @@ nnoremap <leader>o :open google<space>
 
 nnoremap <leader>v :open javascript:location.href='http://b.hatena.ne.jp/entry/'+location.href<CR>
 
+" caret-hint
+nnoremap <silent> s :caret select head<CR>
+
+" normal/visual mode で選択で google 検索
+nnoremap <silent> s :copy %SEL%<CR>P
+vnoremap <silent> s y<Esc><Esc>P
+" }}}
+
+" qmarks {{{
 " ブックマークレット
 qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+location.href
 qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURIComponent(location.href),'_blank'))
+" }}}
 
-" ex mode時IMEをOFF
-style -name commandline-ime chrome://* #liberator-commandline-command input { ime-mode: inactive; }
-
-" autocmd 駆動時のエコーをやめる https://gist.github.com/anekos/1028562
+" autocmd 駆動時のエコーをやめる https://gist.github.com/anekos/1028562 {{{
 js <<EOM
 let (original = liberator.echomsg)
   liberator.echomsg = function (msg) {
@@ -107,32 +119,33 @@ let (original = liberator.echomsg)
       original.apply(liberator, arguments);
   };
 EOM
+" }}}
 
-" addons
+" addons {{{
 " ツリー型タブ
 set! extensions.treestyletab.allowSubtreeCollapseExpand.vertical=false
+" }}}
 
-" command
-" ======================================================================
+" commands {{{
 " autocmd VimperatorEnter .* <args> を lazy コマンドとして登録
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 
 " 履歴とブックマークの管理を開く
 command! bookmarkmanager open chrome://browser/content/places/places.xul
+" }}}
 
-" plugins
-" ======================================================================
+" plugins {{{
 
 " load_plugin.js
-let g:plugin_loader_roots = "~/projects/vimperator-plugins/"
-let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,stella,tombloo"
+let g:plugin_loader_roots = "~/projects/vimperator-plugins/ ~/projects/private-plugins"
+let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,stella,tombloo,autoimage,copy,caret-hint"
 
 " feedSomKeys_3.js webservice 最適化
 lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
 lazy fmaps -u='^https?://soundcloud\.com/' <Space> <CR> s m <Left> <Right> <S-Left> <S-Right> <S-Up> <S-Down> 0 1 2 3 4 5 6 7 8 9
 
-" stella.js
+" stella.js {{{
 js <<EOM
 function addLocalMappings(buffer, maps) {
   maps.forEach(
@@ -177,6 +190,8 @@ addLocalMappings(
   ]
 );
 EOM
+" }}}
 
 " tombloo.js
 nnoremap <Leader>q :tombloo Quote<CR>
+" }}}
