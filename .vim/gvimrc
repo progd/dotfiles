@@ -35,5 +35,5 @@ if has('win32')
     highlight Cursor guifg=#000d18 guibg=#8faf9f gui=bold
     highlight CursorIM guifg=NONE guibg=#ff0000
   end
-  set transparency=200 " 透明度を指定
+  autocmd guienter * set transparency=200 " 透明度を指定
 end
