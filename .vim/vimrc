@@ -1,9 +1,25 @@
+" Initialize {{{
+let s:is_windows = has('win16') || has('win32') || has('win64')
+let s:is_cygwin = has('win32unix')
+function! IsWindows()
+  return s:is_windows
+endfunction
+
+function! IsMac()
+  return !s:is_windows && !s:is_cygwin
+        \ && (has('mac') || has('macunix') || has('gui_macvim') ||
+        \   (!executable('xdg-open') &&
+        \     system('uname') =~? '^darwin'))
+endfunction
+
+" Be iMproved
+if &compatible
+  set nocompatible
+endif
+" }}}
+
 " NeoBundle configure {{{
 if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
@@ -13,15 +29,17 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Plugins
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+" Windows では kaoriya vim 付属の vimproc を使用する
+if IsWindows()
+  NeoBundle 'Shougo/vimproc.vim', {
+  \ 'build' : {
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'linux' : 'make',
+  \     'unix' : 'gmake',
+  \    },
+  \ }
+endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
@@ -56,8 +74,6 @@ NeoBundleCheck
 " }}}
 
 " General settings {{{
-let OSTYPE = system('uname')
-
 let mapleader = ","
 
 " シンタックスハイライト有効、暗い背景用
@@ -300,7 +316,7 @@ let g:syntastic_check_on_wq = 0
 " }}}
 
 " vimshell {{{
-if OSTYPE == "Darwin\n"
+if IsMac()
   let g:vimshell_editor_command = "/usr/local/bin/vim"
 endif
 let g:vimshell_vimshrc_path = '~/.vim/vimshrc'
