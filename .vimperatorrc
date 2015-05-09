@@ -95,7 +95,7 @@ nnoremap <leader>o :open google<space>
 nnoremap <leader>v :open javascript:location.href='http://b.hatena.ne.jp/entry/'+location.href<CR>
 
 " caret-hint
-nnoremap <silent> s :caret select head<CR>
+nnoremap <silent> S :caret select head<CR>
 
 " normal/visual mode で選択で google 検索
 nnoremap <silent> s :copy %SEL%<CR>P
