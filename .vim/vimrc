@@ -30,7 +30,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Plugins
 " Windows では kaoriya vim 付属の vimproc を使用する
-if IsWindows()
+if !IsWindows()
   NeoBundle 'Shougo/vimproc.vim', {
   \ 'build' : {
   \     'cygwin' : 'make -f make_cygwin.mak',
@@ -49,8 +49,17 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite-help'
 NeoBundle 'vim-scripts/kwbdi.vim'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundleLazy 'marcus/rsense', {
+      \ 'autoload': {
+      \   'filetypes': 'ruby',
+      \ },
+      \ }
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+      \ 'depends': ['Shougo/neocomplete.vim', 'marcus/rsense'],
+      \ 'autoload': {
+      \   'filetypes': 'ruby',
+      \ },
+      \ }
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'
@@ -181,11 +190,12 @@ nnoremap <silent> <leader>vr :<C-u>UniteResume<CR>
 nnoremap <silent> <leader>o  :<C-u>Unite -winwidth=40 -vertical -no-quit outline<CR>
 nnoremap <silent> <leader>h  :<C-u>Unite help<CR>
 nnoremap <silent> <leader>g  :<C-u>UniteWithBufferDir file_rec/async:!<CR>
+nnoremap <silent> <leader>l  :<C-u>Unite line<CR>
 " }}}
 
 " vimfiler keymap {{{
-nnoremap <silent> <leader>e  :<C-u>VimFilerBufferDir -find -explorer -no-split -quit<CR>
-nnoremap <silent> <leader>t  :<C-u>VimFilerBufferDir -find -winwidth=40 -split -explorer -no-quit<CR>
+nnoremap <silent> <leader>e  :<C-u>VimFilerBufferDir -buffer-name=filer -find -no-split -quit<CR>
+nnoremap <silent> <leader>t  :<C-u>VimFilerBufferDir -buffer-name=tree -winwidth=40 -split -explorer -toggle -no-quit<CR>
 " }}}
 
 " neocomplete {{{
@@ -285,6 +295,8 @@ let g:neocomplete#sources#rsense#home_directory = '/usr/local'
 " }}}
 
 " vimfiler {{{
+" netrw.vim を無効にする
+let g:loaded_netrwPlugin = 1
 " デフォルトのファイルエクスプローラにする
 let g:vimfiler_as_default_explorer = 1
 " セーフモード無効
