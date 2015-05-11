@@ -1,0 +1,111 @@
+[[plugins]]
+repository = 'Shougo/neomru.vim'
+filetypes = 'all'
+
+[[plugins]]
+repository = 'Shougo/unite.vim'
+depends = 'Shougo/neomru.vim'
+
+  [plugins.commands]
+  name = 'Unite'
+  complete = 'customlist,unite#complete_source'
+
+[[plugins]]
+repository = 'Shougo/neocomplete.vim'
+insert = 1
+
+[[plugins]]
+repository = 'Shougo/vimfiler.vim'
+depends = 'Shougo/unite.vim'
+mappings = '<Plug>'
+explorer = 1
+
+  [plugins.commands]
+  name = 'VimFiler'
+  complete = 'customlist,vimfiler#complete'
+
+[[plugins]]
+repository = 'Shougo/vimshell.vim'
+mappings = '<Plug>'
+
+  [plugins.commands]
+  name = 'VimShell'
+  complete = 'customlist,vimshell#complete'
+
+[[plugins]]
+repository = 'Shougo/unite-help'
+depends = 'Shougo/unite.vim'
+
+[[plugins]]
+repository = 'marcus/rsense'
+filetypes = 'ruby'
+
+[[plugins]]
+repository = 'supermomonga/neocomplete-rsense.vim'
+filetypes = 'ruby'
+depends = ['Shougo/neocomplete.vim', 'marcus/rsense']
+
+[[plugins]]
+repository = 'scrooloose/syntastic'
+filetypes = 'ruby'
+
+[[plugins]]
+repository = 'scrooloose/syntastic'
+filetypes = 'ruby'
+
+[[plugins]]
+repository = 'thinca/vim-ref'
+unite_sources = 'ref'
+
+[[plugins]]
+repository = 'yuku-t/vim-ref-ri'
+unite_sources = 'ref'
+
+[[plugins]]
+repository = 'szw/vim-tags'
+
+  [plugins.commands]
+  name = 'TagsGenerate'
+
+[[plugins]]
+repository = 'tpope/vim-endwise'
+filetypes = 'ruby'
+
+[[plugins]]
+repository = 'tyru/open-browser.vim'
+filetypes = 'all'
+
+[[plugins]]
+repository = 'thinca/vim-quickrun'
+filetypes = 'all'
+
+[[plugins]]
+repository = 'slim-template/vim-slim'
+filetypes = 'slim'
+
+[[plugins]]
+repository = 'hail2u/vim-css3-syntax'
+filetypes = 'css'
+
+[[plugins]]
+repository = 'othree/html5.vim'
+filetypes = 'html'
+
+[[plugins]]
+repository = 'pangloss/vim-javascript'
+filetypes = 'javascript'
+
+[[plugins]]
+repository = 'osyo-manga/vim-brightest'
+filetypes = 'all'
+
+[[plugins]]
+repository = 'https://raw.githubusercontent.com/vimperator/vimperator-labs/master/vimperator/contrib/vim/ftdetect/vimperator.vim'
+script_type = 'ftdetect'
+name = 'vimperator-ftdetect'
+
+[[plugins]]
+repository = 'https://raw.githubusercontent.com/vimperator/vimperator-labs/master/vimperator/cntrib/vim/syntax/vimperator.vim'
+script_type = 'syntax'
+name = 'vimperator-syntax'
+filetypes = 'vimperator'

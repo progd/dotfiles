@@ -1,4 +1,7 @@
 colorscheme desert
+
+set t_vb=
+
 " ウインドウの幅
 set columns=120
 " ウインドウの高さ
@@ -13,9 +16,7 @@ set mousehide
 " ビジュアル選択(D&D他)を自動的にクリップボードへ (:help guioptions_a)
 set guioptions+=a
 
-"フォント関連
-set guifont=Ricty\ Discord:h14
-set guifontwide=Ricty\ Discord:h14
+" フォント
 set antialias
 " ツールバーを非表示
 set guioptions-=T
@@ -23,17 +24,23 @@ set guioptions-=T
 " 全角文字を全角表示
 set ambiwidth=double
 
-" for MacVim
-if has('gui_macvim')
-  set transparency=20 " 透明度を指定
-endif
-
-" for Windows
-if has('win32')
+if IsWindows()
   "IME状態に応じたカーソル色を設定
   if has('multi_byte_ime')
     highlight Cursor guifg=#000d18 guibg=#8faf9f gui=bold
     highlight CursorIM guifg=NONE guibg=#ff0000
   end
-  autocmd guienter * set transparency=200 " 透明度を指定
-end
+  " 透明度を指定
+  autocmd guienter * set transparency=220
+  " フォント
+  set guifont=MeiryoKe_Console:h10
+  set guifontwide=MeiryoKe_Console:h10
+
+elseif IsMac()
+  " 透明度を指定
+  set transparency=20
+  " フォント
+  set guifont=Ricty\ Discord:h14
+  set guifontwide=Ricty\ Discord:h14
+
+endif

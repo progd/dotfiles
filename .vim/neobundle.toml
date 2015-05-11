@@ -1,0 +1,21 @@
+[[plugins]]
+repository = 'Shougo/vimproc.vim'
+
+  [plugins.build]
+  windows = 'tools\\update-dll-mingw'
+  cygwin = 'make -f make_cygwin.mak'
+  mac = 'make -f make_mac.mak'
+  linux = 'make'
+  unix = 'gmake'
+
+[[plugins]]
+repository = 'itchyny/lightline.vim'
+
+[[plugins]]
+repository = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+repository = 'cespare/vim-toml'
+
+[[plugins]]
+repository = 'vim-jp/vimdoc-ja'
