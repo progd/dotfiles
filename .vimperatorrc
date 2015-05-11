@@ -24,8 +24,6 @@ set! browser.enable_automatic_image_resizing=false
 
 " ヒントに使用する文字
 set hintchars="abcdefghijklmnopqrstuvwxyz"
-" GUI 表示設定
-set gui=noaddons,nobookmarks,menu,nonavigation,tabs
 " タブに番号を表示
 set tabnumbers
 " 補完候補順を タブ, 検索エンジン, ロケーションバーエントリ, ファイル に
@@ -33,17 +31,27 @@ set complete=tslf
 
 set! general.smoothScroll=false
 
-" ヒントのスタイル
-highlight Hint Hint z-index: 10000; font-family: "Ricty Discord","Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: normal; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em; text-transform: uppercase;
-
-" アドオン: ツリー型タブでインデントしない
-set! extensions.treestyletab.maxTreeLevel.vertical=0
-
 " エディタ
-set editor=C:\\\\Users\\\\progd\\\\bin\\\\vim74-kaoriya-win64\\\\gvim.exe\ -f
+js<<EOM
+if(liberator.has('Windows')) {
+  liberator.modules.options.editor = '~/bin/vim74-kaoriya-win64/gvim.exe -f'
+} else {
+  liberator.modules.options.editor = 'gvim -f'
+}
+EOM
 
 " ex mode時IMEをOFF
 style -name commandline-ime chrome://* #liberator-commandline-command input { ime-mode: inactive; }
+" }}}
+
+" appearance {{{ 
+highlight CmdLine font-family:"MeiryoKe_Console","Ricty Discord" monospace;
+
+" GUI 表示設定
+set gui=noaddons,nobookmarks,menu,nonavigation,tabs
+
+" ヒントのスタイル
+highlight Hint Hint z-index: 10000; font-family: "MeiryoKe_Console", "Ricty Discord","Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: normal; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em; text-transform: uppercase;
 " }}}
 
 " mappings {{{
