@@ -223,6 +223,7 @@ if neobundle#tap('vimshell') " {{{
 endif " }}}
 
 if neobundle#tap('incsearch.vim') " {{{
+  let g:incsearch#auto_nohlsearch = 0
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
@@ -232,6 +233,7 @@ if neobundle#tap('incsearch.vim') " {{{
   map #  <Plug>(incsearch-nohl-#)
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
+  nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 endif " }}}
 
 " neocomplete {{{
@@ -324,10 +326,6 @@ if neobundle#tap('vimshell') " {{{
   endif
   let g:vimshell_vimshrc_path = '~/.vim/vimshrc'
 endif " }}}
-
-" incsearch.vim {{{
-let g:incsearch#auto_nohlsearch = 1
-" }}}
 
 " vim-brightest {{{
 let g:brightest#highlight = { "group" : "BrightestUnderline" }
