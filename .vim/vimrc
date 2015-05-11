@@ -90,7 +90,7 @@ let mapleader = ","
 set background=dark
 
 " カーソル行を強調表示
-set cursorline
+autocmd BufEnter * set cursorline
 highlight CursorLine cterm=NONE ctermbg=DarkMagenta guibg=DarkMagenta
 
 " Installation check.
@@ -171,6 +171,10 @@ for pair in [
   execute 'noremap! '.pair[0].'<BS> '.pair[0].'<BS>'
   execute 'noremap! '.pair[0].'<C-h> '.pair[0].'<C-h>'
 endfor
+" }}}
+
+" edit {{{
+nnoremap <leader>p "*p
 " }}}
 
 " tabs {{{
