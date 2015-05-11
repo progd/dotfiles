@@ -109,3 +109,7 @@ repository = 'https://raw.githubusercontent.com/vimperator/vimperator-labs/maste
 script_type = 'syntax'
 name = 'vimperator-syntax'
 filetypes = 'vimperator'
+
+[[plugins]]
+repository = 'kana/vim-smartinput'
+insert = 1

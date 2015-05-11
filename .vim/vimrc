@@ -37,10 +37,8 @@ call neobundle#end()
 
 filetype plugin indent on
 
-if !has('vim_starting')
-  " Installation check.
-  NeoBundleCheck
-endif
+" Installation check.
+NeoBundleCheck
 " }}}
 
 " General settings {{{
@@ -103,26 +101,6 @@ noremap! <C-f>  <Right>
 noremap! <C-d>  <Del>
 cnoremap <C-p>  <Up>
 cnoremap <C-n>  <Down>
-" }}}
-
-" parenthesis {{{
-" 括弧、クォートの自動入力
-for pair in [
-      \ ['(', ')'], ['[', ']'], ['{', '}'], ['<', '>'], ["'", "'"],
-      \ ['"', '"']
-      \ ]
-  " 左括弧を入力したら右括弧も入力し、カーソルをその間に移動
-  execute 'noremap! '.pair[0].' '.pair[0].pair[1].'<Left>'
-  " 左括弧の直後に右括弧を入力した場合は、自動入力せずにそのまま
-  execute 'noremap! '.pair[0].pair[1].' '.pair[0].pair[1]
-  " 左括弧の直後に改行した場合は、次の行に右括弧を入力し、その上に行を挿入
-  execute 'noremap! '.pair[0].'<CR> '.pair[0].'<CR>'.pair[1].'<Esc>O'
-  " 左括弧の直後に ESC を押した場合は、自動入力せずにそのまま
-  execute 'noremap! '.pair[0].'<Esc> '.pair[0].'<Esc>'
-  " 左括弧の直後に BS を押した場合は、普通に削除
-  execute 'noremap! '.pair[0].'<BS> '.pair[0].'<BS>'
-  execute 'noremap! '.pair[0].'<C-h> '.pair[0].'<C-h>'
-endfor
 " }}}
 
 " edit {{{
