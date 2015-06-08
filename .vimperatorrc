@@ -42,6 +42,9 @@ EOM
 
 " ex mode時IMEをOFF
 style -name commandline-ime chrome://* #liberator-commandline-command input { ime-mode: inactive; }
+
+" ローカル用 vimperatorrc を読み込み (エラー無視)
+source! ~/.vimperatorrc_local
 " }}}
 
 " appearance {{{ 
@@ -131,6 +134,7 @@ EOM
 
 " addons {{{
 " ツリー型タブ
+set! extensions.treestyletab.tabbar.position=left
 set! extensions.treestyletab.allowSubtreeCollapseExpand.vertical=false
 " }}}
 
