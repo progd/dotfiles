@@ -119,17 +119,8 @@ qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+locatio
 qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURIComponent(location.href),'_blank'))
 " }}}
 
-" autocmd 駆動時のエコーをやめる https://gist.github.com/anekos/1028562 {{{
-js <<EOM
-let (original = liberator.echomsg)
-  liberator.echomsg = function (msg) {
-    const REAC = RegExp('@chrome://liberator/content/autocommands\\.js:\\d+');
-    if (Error().stack.split(/\n/).some(RegExp.prototype.test.bind(REAC)) && /Executing .* Auto commands for .*/.test(msg))
-      liberator.log(msg);
-    else
-      original.apply(liberator, arguments);
-  };
-EOM
+" style for websites {{{
+style gigazine.net * {font-family: Meiryo !important;}
 " }}}
 
 " addons {{{
@@ -141,68 +132,18 @@ set! extensions.treestyletab.allowSubtreeCollapseExpand.vertical=false
 " commands {{{
 " autocmd VimperatorEnter .* <args> を lazy コマンドとして登録
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-
-" 履歴とブックマークの管理を開く
-command! bookmarkmanager open chrome://browser/content/places/places.xul
 " }}}
 
 " plugins {{{
 
 " load_plugin.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/ ~/projects/private-plugins"
-let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,stella,tombloo,autoimage,copy,caret-hint"
+let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,tombloo,autoimage,copy,caret-hint,PDF.js"
 
 " feedSomKeys_3.js webservice 最適化
 lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
 lazy fmaps -u='^https?://soundcloud\.com/' <Space> <CR> s m <Left> <Right> <S-Left> <S-Right> <S-Up> <S-Down> 0 1 2 3 4 5 6 7 8 9
-
-" stella.js {{{
-js <<EOM
-function addLocalMappings(buffer, maps) {
-  maps.forEach(
-    function (map) {
-      let [cmd, action, extra] = map;
-      let actionFunc = action;
-      extra || (extra = {});
-
-      if (typeof action == "string") {
-        if (action.charAt(0) == ':')
-          actionFunc = extra.open ? function () commandline.open("", action, modes.EX)
-                                  : function () liberator.execute(action);
-        else
-          actionFunc = function () events.feedkeys(action, extra.noremap, true);
-      }
-      extra.matchingUrls = buffer;
-      mappings.addUserMap(
-        [modes.NORMAL],
-        [cmd],
-        "Local mapping for " + buffer,
-        actionFunc,
-        extra
-      );
-    }
-  );
-}
-addLocalMappings(
-  /^(http:\/\/(es|www).nicovideo.jp\/(watch|playlist\/mylist)|http:\/\/(jp|www)\.youtube\.com\/watch|http:\/\/(www\.)?vimeo\.com\/(channels\/(hd)?#)?\d+)/,
-  [
-    ['<C-g>', ':pageinfo S', ],
-    ['p', ':stplay', ],
-    ['m', ':stmute', ],
-    [',c', ':stcomment', ],
-    ['zz', ':stlarge', ],
-    ['r', ':strepeat', ],
-    ['^', ':stvolume! 10', ],
-    ['-', ':stvolume! -10', ],
-    ['<', ':stseek! -10', ],
-    ['>', ':stseek! 10', ],
-    ['v', ':stvolume ', {open: true}],
-    ['V', ':stvolume! ', {open: true}],
-  ]
-);
-EOM
-" }}}
 
 " tombloo.js
 nnoremap <Leader>q :tombloo Quote<CR>
