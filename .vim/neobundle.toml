@@ -13,9 +13,3 @@ repository = 'itchyny/lightline.vim'
 
 [[plugins]]
 repository = 'haya14busa/incsearch.vim'
-
-[[plugins]]
-repository = 'cespare/vim-toml'
-
-[[plugins]]
-repository = 'vim-jp/vimdoc-ja'

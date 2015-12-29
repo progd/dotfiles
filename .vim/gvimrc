@@ -18,7 +18,8 @@ set guioptions+=a
 
 " フォント
 set antialias
-" ツールバーを非表示
+" メニュー、ツールバーを非表示
+set guioptions-=m
 set guioptions-=T
 
 " 全角文字を全角表示

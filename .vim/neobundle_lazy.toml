@@ -1,12 +1,12 @@
 [[plugins]]
 repository = 'Shougo/neomru.vim'
-filetypes = 'all'
+on_ft = 'all'
 
 [[plugins]]
 repository = 'Shougo/unite.vim'
 depends = 'Shougo/neomru.vim'
 
-  [plugins.commands]
+  [plugins.on_cmd]
   name = 'Unite'
   complete = 'customlist,unite#complete_source'
 
@@ -17,24 +17,28 @@ insert = 1
 [[plugins]]
 repository = 'Shougo/vimfiler.vim'
 depends = 'Shougo/unite.vim'
-mappings = '<Plug>'
+on_map = '<Plug>'
 explorer = 1
 
-  [plugins.commands]
+  [plugins.on_cmd]
   name = 'VimFiler'
   complete = 'customlist,vimfiler#complete'
 
 [[plugins]]
 repository = 'Shougo/vimshell.vim'
-mappings = '<Plug>'
+on_map = '<Plug>'
 
-  [plugins.commands]
+  [plugins.on_cmd]
   name = 'VimShell'
   complete = 'customlist,vimshell#complete'
 
 [[plugins]]
 repository = 'Shougo/unite-help'
 depends = 'Shougo/unite.vim'
+
+[[plugins]]
+repository = 'Shougo/unite-outline'
+on_unite = 'outline'
 
 [[plugins]]
 repository = 'marcus/rsense'
@@ -55,16 +59,16 @@ filetypes = 'ruby'
 
 [[plugins]]
 repository = 'thinca/vim-ref'
-unite_sources = 'ref'
+on_unite = 'ref'
 
 [[plugins]]
 repository = 'yuku-t/vim-ref-ri'
-unite_sources = 'ref'
+on_unite = 'ref'
 
 [[plugins]]
 repository = 'szw/vim-tags'
 
-  [plugins.commands]
+  [plugins.on_cmd]
   name = 'TagsGenerate'
 
 [[plugins]]
@@ -100,16 +104,19 @@ repository = 'osyo-manga/vim-brightest'
 filetypes = 'all'
 
 [[plugins]]
-repository = 'https://raw.githubusercontent.com/vimperator/vimperator-labs/master/vimperator/contrib/vim/ftdetect/vimperator.vim'
-script_type = 'ftdetect'
-name = 'vimperator-ftdetect'
-
-[[plugins]]
-repository = 'https://raw.githubusercontent.com/vimperator/vimperator-labs/master/vimperator/cntrib/vim/syntax/vimperator.vim'
-script_type = 'syntax'
-name = 'vimperator-syntax'
-filetypes = 'vimperator'
-
-[[plugins]]
 repository = 'kana/vim-smartinput'
 insert = 1
+
+[[plugins]]
+repository = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repository = 'https://raw.githubusercontent.com/vimperator/vimperator-labs/master/vimperator/contrib/vim/syntax/vimperator.vim'
+script_type = 'syntax'
+name = 'vimperator-syntax'
+on_ft = 'vimperator'
+
+[[plugins]]
+repository = 'vim-scripts/kwbdi.vim'
+on_map = '<Plug>Kwbd'
