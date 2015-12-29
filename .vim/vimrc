@@ -220,11 +220,6 @@ if neobundle#tap('vim-quickrun') " {{{
   call neobundle#untap()
 endif " }}}
 
-if neobundle#tap('vimshell.vim') " {{{
-  nnoremap <silent> <leader>s :VimShell<CR>
-  call neobundle#untap()
-endif " }}}
-
 if neobundle#tap('incsearch.vim') " {{{
   let g:incsearch#auto_nohlsearch = 0
   map /  <Plug>(incsearch-forward)

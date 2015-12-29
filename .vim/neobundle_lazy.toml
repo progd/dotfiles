@@ -25,14 +25,6 @@ explorer = 1
   complete = 'customlist,vimfiler#complete'
 
 [[plugins]]
-repository = 'Shougo/vimshell.vim'
-on_map = '<Plug>'
-
-  [plugins.on_cmd]
-  name = 'VimShell'
-  complete = 'customlist,vimshell#complete'
-
-[[plugins]]
 repository = 'Shougo/unite-help'
 depends = 'Shougo/unite.vim'
 
@@ -48,10 +40,6 @@ filetypes = 'ruby'
 repository = 'supermomonga/neocomplete-rsense.vim'
 filetypes = 'ruby'
 depends = ['Shougo/neocomplete.vim', 'marcus/rsense']
-
-[[plugins]]
-repository = 'scrooloose/syntastic'
-filetypes = 'ruby'
 
 [[plugins]]
 repository = 'scrooloose/syntastic'
