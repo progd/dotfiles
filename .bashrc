@@ -1,4 +1,5 @@
 # 共通の alias の設定
+alias ls='ls --color=auto'
 alias t='ls -lhtr'
 alias l='ls -lha'
 alias a='ls -a'

@@ -3,7 +3,7 @@
 	email = gprogd@gmail.com
 [core]
 	editor = vim
-	pager = lv
+	pager = less
     excludesfile = ~/.gitignore_global
 [color]
 	ui = auto

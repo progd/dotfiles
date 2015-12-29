@@ -1,0 +1,34 @@
+set completion-ignore-case on
+set visible-stats on
+set mark-directories on
+
+# Don't ring bell on completion
+set bell-style none
+
+# Show all instead of beeping first
+set show-all-if-ambiguous on
+
+# Filename completion/expansion
+set completion-ignore-case on
+
+# Append "/" to all dirnames
+set mark-directories on
+set mark-symlinked-directories on
+
+# visible-stats
+# Append a mark according to the file type in a listing
+set visible-stats on
+set mark-directories on
+
+# Match all files
+set match-hidden-files on
+
+"\C-p":history-search-backward
+"\C-n":history-search-forward
+
+$if Bash
+  # 'Magic Space'
+  # Insert a space character then performs
+  # a history expansion in the line
+  Space: magic-space
+$endif
