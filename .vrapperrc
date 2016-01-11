@@ -1,0 +1,23 @@
+noremap L $
+noremap H ^
+
+" paste from clipboard
+nnoremap ,p "*p
+
+" tab changing
+nnoremap sn gt
+nnoremap sp gT
+
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" editing configration
+set autoindent
+set smartcase
+set incsearch
+set number
+set cursorline
+set hlsearch
+set imdisable
+
+" copy selection to clipboard in visual mode
+set clipboard=autoselect
