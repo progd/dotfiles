@@ -23,7 +23,7 @@ set! browser.tabs.loadDivertedInBackground=true
 set! browser.enable_automatic_image_resizing=false
 
 " ヒントに使用する文字
-set hintchars="abcdefghijklmnopqrstuvwxyz"
+set hintchars="asdfghjklzxcvbnmqwertyuiop1234567890"
 " タブに番号を表示
 set tabnumbers
 " 補完候補順を タブ, 検索エンジン, ロケーションバーエントリ, ファイル に
@@ -103,7 +103,8 @@ let mapleader = ','
 nnoremap <leader>t :tabopen google<space>
 nnoremap <leader>o :open google<space>
 
-nnoremap <leader>v :open javascript:location.href='http://b.hatena.ne.jp/entry/'+location.href<CR>
+nnoremap <leader>v :open javascript:location.href='http://b.hatena.ne.jp/entry/'+location.href.replace(/http:\/\/web\.archive\.org\/web\/\d+\//,'')<CR>
+nnoremap <leader>a :open javascript:location.href='http://web.archive.org/*/'+location.href.replace(/^http:\/\/b\.hatena\.ne\.jp\/entry(\.touch)?\//,'http://')<CR>
 
 " caret-hint
 nnoremap <silent> S :caret select head<CR>
@@ -120,7 +121,9 @@ qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURI
 " }}}
 
 " style for websites {{{
-style gigazine.net * {font-family: Meiryo !important;}
+style gigazine.net * {font-family: YuGothic !important;}
+style ameblo.jp * {font-family: YuGothic !important;}
+style fc2.com #fc2_bottom_bnr {display:none !important;}
 " }}}
 
 " addons {{{
