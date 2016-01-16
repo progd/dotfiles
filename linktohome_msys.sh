@@ -14,3 +14,4 @@ ln -s -f $USERPROFILE/projects/dotfiles/.vim
 ln -s -f $USERPROFILE/projects/dotfiles/.zsh.d
 ln -s -f $USERPROFILE/projects/dotfiles/.zshenv
 ln -s -f $USERPROFILE/projects/dotfiles/.zshrc
+ln -s -f $USERPROFILE/projects/dotfiles/dot.nodoka
