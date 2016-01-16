@@ -1,0 +1,41 @@
+﻿# キーボード定義ファイル 英語/日本語配列や、Emacsライク設定をシンボル定義で切り替えます。
+include "read-keyboard-define.nodoka"     
+include "109.nodoka"
+
+# グローバルキーマップの設定
+keymap Global                             
+
+# F1キーで、のどかのメニューを開く
+key F1 = &SendPostMessage("PostTray",,"のどか", 0x0205, 0, 0) 
+
+# BackSpace
+key C-H = BackSpace             
+
+# Semicolon を Enter に
+key *Semicolon   = *Enter                 
+key *Enter   = *Semicolon
+
+mod mod0 = !!無変換
+
+key *IC-M0-*H = *Left
+key *IC-M0-*J = *Down
+key *IC-M0-*K = *Up
+key *IC-M0-*L = *Right
+key *IC-M0-*D = *Delete
+key *IC-M0-*C = *Applications
+
+mod control += 英数
+key *英数 = *LeftControl
+
+key *IC-半角/全角 = *Esc
+
+mod Control -= LeftControl
+mod mod1 = !LeftControl
+key *IC-M1-*Semicolon = *Left
+key *IC-M1-*Colon = *Right
+key *IC-M1-*CommercialAt = *Up
+key *IC-M1-*Solidus = *Down
+key *IC-M1-*K = *Home
+key *IC-M1-*Comma = *End
+key *IC-M1-*L = *PageUp
+key *IC-M1-*Period = *PageDown
