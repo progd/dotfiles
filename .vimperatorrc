@@ -23,7 +23,7 @@ set! browser.tabs.loadDivertedInBackground=true
 set! browser.enable_automatic_image_resizing=false
 
 " ヒントに使用する文字
-set hintchars="asdfghjklzxcvbnmqwertyuiop1234567890"
+set hintchars="asdfghjklzxcvbnmqwertyuiop123456789"
 " タブに番号を表示
 set tabnumbers
 " 補完候補順を タブ, 検索エンジン, ロケーションバーエントリ, ファイル に
@@ -45,6 +45,9 @@ style -name commandline-ime chrome://* #liberator-commandline-command input { im
 
 " ローカル用 vimperatorrc を読み込み (エラー無視)
 source! ~/.vimperatorrc_local
+
+set visualbell
+highlight Bell display: none;
 " }}}
 
 " appearance {{{ 
@@ -66,11 +69,13 @@ noremap k 10k
 " l/h でタブ移動
 noremap l gt
 noremap h gT
+noremap <silent> L :<C-u>tabmove +1<CR>
+noremap <silent> H :<C-u>tabmove -1<CR>
 
 " C-l/h で進む/戻る
-noremap <C-l> :forward<CR>
-noremap <C-h> :back<CR>
-noremap <BS> :back<CR>
+noremap <silent> <C-l> :forward<CR>
+noremap <silent> <C-h> :back<CR>
+noremap <silent> <BS> :back<CR>
 
 " 文字入力時に emacs っぽいキーバインド
 noremap  <C-g> <esc>
