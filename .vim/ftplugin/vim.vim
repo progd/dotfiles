@@ -1,3 +1,3 @@
-set foldmethod=marker
-set tabstop=2
-set shiftwidth=2
+setlocal foldmethod=marker
+setlocal tabstop=2
+setlocal shiftwidth=2

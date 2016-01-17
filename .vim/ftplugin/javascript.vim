@@ -1,3 +1,3 @@
-set foldmethod=syntax
-set tabstop=2
-set shiftwidth=2
+setlocal foldmethod=syntax
+setlocal tabstop=2
+setlocal shiftwidth=2

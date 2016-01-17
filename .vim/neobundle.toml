@@ -13,3 +13,6 @@ repository = 'itchyny/lightline.vim'
 
 [[plugins]]
 repository = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+repository = 'thinca/vim-singleton'
