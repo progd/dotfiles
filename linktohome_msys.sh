@@ -13,6 +13,8 @@ ln -s -f $USERPROFILE/projects/dotfiles/.gitconfig
 ln -s -f $USERPROFILE/projects/dotfiles/.gitignore_global
 ln -s -f $USERPROFILE/projects/dotfiles/.tmux.conf
 ln -s -f $USERPROFILE/projects/dotfiles/.vim
+ln -s -f $USERPROFILE/projects/dotfiles/.vimperator
+ln -s -f $USERPROFILE/projects/dotfiles/.vimperatorrc
 ln -s -f $USERPROFILE/projects/dotfiles/.vrapperrc
 ln -s -f $USERPROFILE/projects/dotfiles/.zsh.d
 ln -s -f $USERPROFILE/projects/dotfiles/.zshenv
