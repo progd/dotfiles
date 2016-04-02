@@ -12,7 +12,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " editing configration
 set autoindent
-set smartcase
+set ignorecase
 set incsearch
 set number
 set cursorline
