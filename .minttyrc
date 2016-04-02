@@ -6,3 +6,4 @@ Locale=ja_JP
 Charset=UTF-8
 Columns=120
 Rows=40
+ForegroundColour=255,255,255
