@@ -23,7 +23,7 @@ set! browser.tabs.loadDivertedInBackground=true
 set! browser.enable_automatic_image_resizing=false
 
 " ヒントに使用する文字
-set hintchars="asdfghjklzxcvbnmqwertyuiop123456789"
+set hintchars="asdfghjklzxcvbnmqwertyuiop"
 " タブに番号を表示
 set tabnumbers
 " 補完候補順を タブ, 検索エンジン, ロケーションバーエントリ, ファイル に
@@ -58,6 +58,8 @@ set gui=noaddons,nobookmarks,menu,nonavigation,tabs
 
 " ヒントのスタイル
 highlight Hint Hint z-index: 10000; font-family: "MeiryoKe_Console", "Ricty Discord","Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: normal; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em; text-transform: uppercase;
+
+style -name global http://*,https://* :focus {background: pink !important;}
 " }}}
 
 " mappings {{{
@@ -120,15 +122,13 @@ vnoremap <silent> s y<Esc><Esc>P
 " }}}
 
 " qmarks {{{
+qmark g https://www.google.co.jp/
 " ブックマークレット
 qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+location.href
 qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURIComponent(location.href),'_blank'))
 " }}}
 
 " style for websites {{{
-style gigazine.net * {font-family: YuGothic !important;}
-style ameblo.jp * {font-family: YuGothic !important;}
-style fc2.com #fc2_bottom_bnr {display:none !important;}
 " }}}
 
 " addons {{{
@@ -145,14 +145,63 @@ command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 " plugins {{{
 
 " load_plugin.js
+lazy source ~/projects/vimperator-plugins/plugin_loader.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/ ~/projects/private-plugins"
-let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,tombloo,autoimage,copy,caret-hint,PDF.js"
+let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,tombloo,autoimage,copy,caret-hint,PDF.js,stella"
 
-" feedSomKeys_3.js webservice 最適化
-lazy fmaps -u='^http://reader\.livedoor\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
+" feedSomeKeys_3.js webservice 最適化
+lazy fmaps -u='^http://reader\.(livedoor|livedwango)\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='^https?://inbox\.google\.com/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
 lazy fmaps -u='^https?://soundcloud\.com/' <Space> <CR> s m <Left> <Right> <S-Left> <S-Right> <S-Up> <S-Down> 0 1 2 3 4 5 6 7 8 9
 
+" addLocalMappings {{{
+js<<EOM
+function addLocalMappings(buffer, maps) {
+  maps.forEach(
+    function (map) {
+      let [cmd, action, extra] = map;
+      let actionFunc = action;
+      extra || (extra = {});
+
+      if (typeof action == "string") {
+        if (action.charAt(0) == ':')
+          actionFunc = extra.open ? function () commandline.open("", action, modes.EX)
+                                  : function () liberator.execute(action);
+        else
+          actionFunc = function () events.feedkeys(action, extra.noremap, true);
+      }
+      extra.matchingUrls = buffer;
+      mappings.addUserMap(
+        [modes.NORMAL],
+        [cmd],
+        "Local mapping for " + buffer,
+        actionFunc,
+        extra
+      );
+    }
+  );
+}
+EOM
+" }}}
+
+" stella.js {{{
+js<<EOM
+addLocalMappings(
+  /^(https?:\/\/(es|www).nicovideo.jp\/(watch|playlist\/mylist)|https?:\/\/(jp|www)\.youtube\.com\/watch)/,
+  [
+    ['p',      ':stplay',          ],
+    ['m',      ':stmute',          ],
+    ['c',      ':stcomment',       ],
+    ['zz',     ':stlarge',         ],
+    ['+',      ':stvolume! 10',    ],
+    ['-',      ':stvolume! -10',   ],
+    ['H',      ':stseek! -10',     ],
+    ['L',      ':stseek! 10',      ],
+  ]
+);
+EOM
+" }}}
 " tombloo.js
 nnoremap <Leader>q :tombloo Quote<CR>
 " }}}
