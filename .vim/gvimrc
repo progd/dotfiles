@@ -1,4 +1,4 @@
-colorscheme desert
+colorscheme zellner
 
 augroup gvimrc
   autocmd!
@@ -45,8 +45,6 @@ if IsWindows()
     highlight Cursor guifg=#000d18 guibg=#8faf9f gui=bold
     highlight CursorIM guifg=NONE guibg=#ff0000
   end
-  " 透明度を指定
-  autocmd gvimrc guienter * set transparency=240
   " フォント
   set guifont=MeiryoKe_Console:h9
   set guifontwide=MeiryoKe_Console:h9
