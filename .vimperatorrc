@@ -119,13 +119,18 @@ nnoremap <silent> S :caret select head<CR>
 " normal/visual mode で選択で google 検索
 nnoremap <silent> s :copy %SEL%<CR>P
 vnoremap <silent> s y<Esc><Esc>P
+
+" PDF.js.js
+nnoremap -urls \.pdf$ / i<C-f>
+nnoremap -urls \.pdf$ ? i<C-f>
 " }}}
 
 " qmarks {{{
-qmark g https://www.google.co.jp/
 " ブックマークレット
+" Livedoor Reader (Subscribe)
 qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+location.href
-qmark f javascript:void(window.open('http://fullrss.net/analyze/?url='+encodeURIComponent(location.href),'_blank'))
+" Readability (Read Now)
+qmark n javascript:(%0A%28function%28%29%7Bwindow.baseUrl%3D%27//www.readability.com%27%3Bwindow.readabilityToken%3D%27%27%3Bvar%20s%3Ddocument.createElement%28%27script%27%29%3Bs.setAttribute%28%27type%27%2C%27text/javascript%27%29%3Bs.setAttribute%28%27charset%27%2C%27UTF-8%27%29%3Bs.setAttribute%28%27src%27%2CbaseUrl%2B%27/bookmarklet/read.js%27%29%3Bdocument.documentElement.appendChild%28s%29%3B%7D%29%28%29)
 " }}}
 
 " style for websites {{{
@@ -137,12 +142,9 @@ set! extensions.treestyletab.tabbar.position=left
 set! extensions.treestyletab.allowSubtreeCollapseExpand.vertical=false
 " }}}
 
-" commands {{{
+" plugins {{{
 " autocmd VimperatorEnter .* <args> を lazy コマンドとして登録
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-" }}}
-
-" plugins {{{
 
 " load_plugin.js
 lazy source ~/projects/vimperator-plugins/plugin_loader.js
