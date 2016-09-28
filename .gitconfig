@@ -1,15 +1,15 @@
 [user]
-	name = progd
-	email = gprogd@gmail.com
+    name = progd
+    email = gprogd@gmail.com
 [core]
-	editor = vim
-	pager = less
+    editor = vim
+    pager = less
     excludesfile = ~/.gitignore_global
 [color]
-	ui = auto
+    ui = auto
 [push]
-	default = simple
+    default = simple
 [alias]
-	l = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
+    l = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
 [include]
-    path = .gitconfig.local
+    path = ~/.gitconfig.local
