@@ -1,0 +1,123 @@
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+on_map = '<Plug>'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+on_cmd = [ 'Unite', 'UniteWithBufferDir' ]
+hook_source = '''
+    call unite#custom#profile('default', 'context', {
+          \ 'start_insert' : 1
+          \ })
+'''
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+insert = 1
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+depends = 'unite.vim'
+on_map = '<Plug>'
+explorer = 1
+on_cmd = [ 'VimFiler', 'VimFilerBufferDir' ]
+hook_post_source = '''
+    call vimfiler#custom#profile('default', 'context', {
+          \   'safe'        : 0,
+          \ })
+'''
+
+[[plugins]]
+repo = 'Shougo/unite-help'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'szw/vim-tags'
+on_cmd = 'TagsGenerate'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+filetypes = 'ruby'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+filetypes = 'all'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+filetypes = 'all'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+filetypes = 'css'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+filetypes = 'html'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+filetypes = 'javascript'
+
+[[plugins]]
+repo = 'osyo-manga/vim-brightest'
+filetypes = 'all'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'vimperator/vimperator.vim'
+on_ft = 'vimperator'
+
+[[plugins]]
+repo = 'vim-scripts/kwbdi.vim'
+on_map = '<Plug>Kwbd'
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+on_ft = 'vim'
+on_i = 1
+
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+on_map = 'g'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+on_i = 1
+
+[[plugins]]
+repo = 'dzeban/vim-log-syntax'
+on_ft = 'log'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+on_map = '<Plug>(EasyAlign)'
+
+[[plugins]]
+repo = 'Konfekt/FastFold'
+on_path = '.*'
+
+[[plugins]]
+repo = 'LeafCage/foldCC.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'https://raw.githubusercontent.com/mono0x/dotfiles/master/.vim/syntax/nodoka.vim'
+script_type = 'syntax'
+on_ft = 'nodoka'
