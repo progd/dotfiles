@@ -22,6 +22,13 @@ set! browser.tabs.loadDivertedInBackground=true
 " 画像の自動ズームをオフ
 set! browser.enable_automatic_image_resizing=false
 
+" 起動時に前回のセッションを復元
+set! browser.startup.page=3
+
+" 自動スクロールとスムーズスクロールをオフ
+set! general.autoScroll=false
+set! general.smoothScroll=false
+
 " ヒントに使用する文字
 set hintchars="asdfghjklzxcvbnmqwertyuiop"
 " タブに番号を表示
@@ -58,8 +65,6 @@ set gui=noaddons,nobookmarks,menu,nonavigation,tabs
 
 " ヒントのスタイル
 highlight Hint Hint z-index: 10000; font-family: "MeiryoKe_Console", "Ricty Discord","Bitstream Vera Sans Mono",monaco,monospace; font-size: 14px; font-weight: normal; color: white; background-color: green; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 2px; line-height: 1em; text-transform: uppercase;
-
-style -name global http://*,https://* :focus {background: pink !important;}
 " }}}
 
 " mappings {{{
@@ -121,8 +126,10 @@ nnoremap <silent> s :copy %SEL%<CR>P
 vnoremap <silent> s y<Esc><Esc>P
 
 " PDF.js.js
+" PDF では標準の検索機能を使いたい
 nnoremap -urls \.pdf$ / i<C-f>
 nnoremap -urls \.pdf$ ? i<C-f>
+ignorekeys add \.pdf$ -except l,h,j,k,f,g,i,t,o,d,D,<C-d>,<C-u>,<C-f>,<C-b>,<C-^>,:,/,?
 " }}}
 
 " qmarks {{{
@@ -133,7 +140,8 @@ qmark l javascript:location.href='http://reader.livedoor.com/subscribe/'+locatio
 qmark n javascript:(%0A%28function%28%29%7Bwindow.baseUrl%3D%27//www.readability.com%27%3Bwindow.readabilityToken%3D%27%27%3Bvar%20s%3Ddocument.createElement%28%27script%27%29%3Bs.setAttribute%28%27type%27%2C%27text/javascript%27%29%3Bs.setAttribute%28%27charset%27%2C%27UTF-8%27%29%3Bs.setAttribute%28%27src%27%2CbaseUrl%2B%27/bookmarklet/read.js%27%29%3Bdocument.documentElement.appendChild%28s%29%3B%7D%29%28%29)
 " }}}
 
-" style for websites {{{
+" websites {{{
+ignorekeys add ^https?://www\.toodledo\.com/tasks/ -except l,h,f,g,t,o,d,D,<C-d>,<C-u>,<C-f>,<C-b>,<C-^>,:,/,?
 " }}}
 
 " addons {{{
@@ -149,13 +157,14 @@ command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 " load_plugin.js
 lazy source ~/projects/vimperator-plugins/plugin_loader.js
 let g:plugin_loader_roots = "~/projects/vimperator-plugins/ ~/projects/private-plugins"
-let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,tombloo,autoimage,copy,caret-hint,PDF.js,stella"
+let g:plugin_loader_plugins = "_libly,auto_source,walk-input,feedSomeKeys_3,autoimage,copy,caret-hint,PDF.js,stella"
 
 " feedSomeKeys_3.js webservice 最適化
 lazy fmaps -u='^http://reader\.(livedoor|livedwango)\.com/reader/' j k s a p v z <S-z> ,r,r < > o,vj <Space> <S-Space> c
 lazy fmaps -u='^https?://mail\.google\.com/(mail|a)/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
 lazy fmaps -u='^https?://inbox\.google\.com/' c j k n p o u e x s r a y # [ ] z ? gi gs gt gd ga gc
 lazy fmaps -u='^https?://soundcloud\.com/' <Space> <CR> s m <Left> <Right> <S-Left> <S-Right> <S-Up> <S-Down> 0 1 2 3 4 5 6 7 8 9
+lazy fmaps -u='\.pdf$' <Left> <Right>
 
 " addLocalMappings {{{
 js<<EOM
