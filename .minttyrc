@@ -1,5 +1,5 @@
 BoldAsFont=no
-Transparency=high
+Transparency=off
 CursorType=block
 Font=MeiryoKe_Console
 Locale=ja_JP
@@ -7,3 +7,4 @@ Charset=UTF-8
 Columns=120
 Rows=40
 ForegroundColour=255,255,255
+FontHeight=9
