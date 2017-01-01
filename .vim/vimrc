@@ -31,9 +31,14 @@ endif
 " }}}
 
 " dein.vim configure {{{
-set runtimepath+=~/.vim_dein/repos/github.com/Shougo/dein.vim
+let s:deindir = expand('~/.vim_dein')
+if !isdirectory(s:deindir)
+  call system('bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ' . shellescape(s:deindir))
+endif
 
-call dein#begin(expand('~/.vim_dein'))
+let &runtimepath = &runtimepath . ',' . s:deindir . '/repos/github.com/Shougo/dein.vim'
+
+call dein#begin(s:deindir)
 
 call dein#load_toml('~/.vim/dein.toml')
 call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy' : 1})
@@ -407,4 +412,6 @@ if has('gui_running') " {{{
       call singleton#enable()
     endif
   endif
+  " source all lazy plugins
+  call dein#source()
 endif " }}}
