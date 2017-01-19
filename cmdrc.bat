@@ -17,13 +17,3 @@ doskey cp=cp -i $*
 doskey mv=mv -i $*
 doskey home=cd /d %USERPROFILE%
 doskey e=explorer $*
-doskey skr="%ProgramFiles%\sakura\sakura.exe" $*
-
-if "%CMD_INIT_SCRIPT_LOADED%" neq "" goto :eof
-set CMD_INIT_SCRIPT_LOADED=1
-set PATH=%USERPROFILE%\bin\apache-maven-3.2.5\bin;%PATH%
-set PATH=%USERPROFILE%\bin\vim74-kaoriya-win32;%PATH%
-rem set PATH=%USERPROFILE%\bin\svn-win32-1.6.6\bin;%PATH%
-
-set ANT_HOME=%USERPROFILE%\bin\apache-ant-1.8.2
-set PATH=%ANT_HOME%\bin;%PATH%
