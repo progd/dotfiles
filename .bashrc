@@ -1,17 +1,23 @@
+if [ -f /usr/local/share/gitprompt.sh ]; then
+  GIT_PROMPT_THEME=Default
+  . /usr/local/share/gitprompt.sh
+fi
+
 # 共通の alias の設定
-alias ls='ls --color=auto'
+case "$OSTYPE" in
+  darwin*)  alias ls='ls -G' ;;
+  *)        alias ls='ls --color=auto' ;;
+esac
 alias t='ls -lhtr'
 alias l='ls -lha'
 alias a='ls -a'
 alias f=ls
 alias d=cd
 
+alias grep='grep --color=auto'
+
 alias hisg='fc -l 1 | grep'
 alias tm='tmux attach || tmux'
-alias e='emacsclient -n'
-
-alias bundle='nocorrect bundle'
-alias be='bundle exec'
 
 alias gst='git status -s -b'
 alias ga='git add'

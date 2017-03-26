@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd ~
+ln -s -f ~/projects/dotfiles/.bash_profile
 ln -s -f ~/projects/dotfiles/.bashrc
 ln -s -f ~/projects/dotfiles/.inputrc
 ln -s -f ~/projects/dotfiles/.gitconfig

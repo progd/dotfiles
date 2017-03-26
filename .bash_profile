@@ -1,3 +1,2 @@
-if [ -f "${HOME}/.bashrc" ] ; then
-  source "${HOME}/.bashrc"
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f "${HOME}/.bashrc" ] && . "${HOME}/.bashrc"
