@@ -33,7 +33,11 @@ endif
 " dein.vim configure {{{
 let s:deindir = expand('~/.vim_dein')
 if !isdirectory(s:deindir)
-  echo system('bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ' . shellescape(s:deindir))
+  if executable('curl')
+    echo system('bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ' . shellescape(s:deindir))
+  else
+    echo system('bash <(wget -O - https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ' . shellescape(s:deindir))
+  endif
 endif
 
 let &runtimepath = &runtimepath . ',' . s:deindir . '/repos/github.com/Shougo/dein.vim'
