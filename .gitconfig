@@ -13,3 +13,5 @@
     l = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
 [include]
     path = ~/.gitconfig.local
+[diff "utf16"]
+    textconv = iconv -f utf-16 -t utf-8
